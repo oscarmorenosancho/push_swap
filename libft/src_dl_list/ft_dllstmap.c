@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:56:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/19 13:56:41 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/19 14:50:20 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_dllist	*ft_applyftonode(t_dllist *curnode, void *(*f)(void *), \
 	newcontent = (*f)(curnode->content);
 	if (! newcontent)
 		return (0);
-	newnode = ft_lstnew(newcontent);
+	newnode = ft_dllstnew(newcontent);
 	if (! newnode)
 	{
 		(*del)(newcontent);
@@ -46,7 +46,7 @@ t_dllist	*ft_lstmap(t_dllist *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		newnode = ft_applyftonode(cur, f, del);
 		if (newnode)
-			ft_dllstadd_back(newnode, &newlist);
+			ft_dllstadd_back(&newlist, newnode);
 		else
 			ft_dllstclear(&newlist, del);
 		if (!newlist)
