@@ -6,11 +6,12 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:12:35 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/19 16:13:48 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:56:15 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
+# include "../libft/libft.h"
 
 #endif

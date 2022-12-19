@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:30:16 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/19 16:24:26 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:54:03 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@
 # include "src_bonus/libft_bonus.h"
 # include "src_extra/libft_extra.h"
 # include "src_dl_list/dl_list.h"
+# include "src_utils/utils.h"
 #endif

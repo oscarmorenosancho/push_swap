@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/19 15:51:24 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/19 16:51:27 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,8 @@ SRCX := ft_copy_pos.c\
 	ft_str_merge.c\
 	ft_str_join_char.c
 
+SRCU := ft_sort_int_tab.c
+
 SRCDLL := ft_dllstnew.c\
 	ft_dllstadd_front.c\
 	ft_dllstsize.c\
@@ -95,30 +97,35 @@ BONUS_PATH := src_bonus/
 GNL_PATH := get_next_line/
 X_PATH := src_extra/
 DLL_PATH := src_dl_list/
+UTILS_PATH := src_utils/
 
 SRC_F := $(addprefix $(SRC_PATH), $(SRC))
 SRCB_F := $(addprefix $(BONUS_PATH), $(SRCB))
 SRCGNL_F := $(addprefix $(GNL_PATH), $(SRCGNL))
 SRCX_F := $(addprefix $(X_PATH), $(SRCX))
 SRCDLL_F := $(addprefix $(DLL_PATH), $(SRCDLL))
+SRCU_F := $(addprefix $(UTILS_PATH), $(SRCU))
 
 SRC_FP := $(addprefix $(LIBFT_PATH), $(SRC_F))
 SRCB_FP := $(addprefix $(LIBFT_PATH), $(SRCB_F))
 SRCGNL_FP := $(addprefix $(LIBFT_PATH), $(SRCGNL_F))
 SRCX_FP := $(addprefix $(LIBFT_PATH), $(SRCX_F))
 SRCDLL_FP := $(addprefix $(LIBFT_PATH), $(SRCDLL_F))
+SRCU_FP := $(addprefix $(LIBFT_PATH), $(SRCU_F))
 
 OBJ := $(SRC_F:.c=.o)
 OBJB := $(SRCB_F:.c=.o)
 OBJGNL := $(SRCGNL_F:.c=.o)
 OBJX := $(SRCX_F:.c=.o)
 OBJDLL := $(SRCDLL_F:.c=.o)
+OBJU := $(SRCU_F:.c=.o)
 
 DEPS := $(SRC_F:.c=.d)
 DEPSB := $(SRCB_F:.c=.d)
 DEPSGNL := $(SRCGNL_F:.c=.d)
 DEPSX := $(SRCX_F:.c=.d)
 DEPSDLL := $(SRCDLL_F:.c=.d)
+DEPSU := $(SRCU_F:.c=.d)
 
 CC	:= 	gcc
 CFLAGS := -Wall -Werror -Wextra -MMD
@@ -130,11 +137,13 @@ BONUS_H := $(addprefix $(BONUS_PATH), libft_bonus.h)
 GNL_H := $(addprefix $(GNL_PATH), get_next_line.h)
 X_H := $(addprefix $(X_PATH), libft_extra.h)
 DLL_H := $(addprefix $(DLL_PATH), dl_list.h)
+UTILS_H := $(addprefix $(DLL_PATH), utils.h)
 MAND_HP := $(addprefix $(LIBFT_PATH), $(MAND_H))
 BONUS_HP := $(addprefix $(LIBFT_PATH), $(BONUS_H))
 GNL_HP := $(addprefix $(LIBFT_PATH), $(GNL_H))
 X_HP := $(addprefix $(LIBFT_PATH), $(X_H))
 DLL_HP := $(addprefix $(LIBFT_PATH), $(DLL_H))
+UTILS_HP := $(addprefix $(LIBFT_PATH), $(UTILS_H))
 HEADER_FP := $(addprefix $(LIBFT_PATH), $(HEADER)) 
 
 %.o : %.c ${HEADER}

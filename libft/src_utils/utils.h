@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 16:12:35 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/19 16:56:07 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/19 16:51:30 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/19 16:53:25 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libft/libft.h"
+#ifndef UTILS_H
+# define UTILS_H
 
+void	ft_sort_int_tab(int *tab, int size);
 #endif
