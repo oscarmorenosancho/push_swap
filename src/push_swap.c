@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/19 17:10:37 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:30:38 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,23 @@ static int	*ft_take_arguments(size_t *size, int argc, char const *argv[])
 
 int	main(int argc, char const *argv[])
 {
-	int		*tab;
-	size_t	size;
+	int					*tab;
+	size_t				size;
+	unsigned int		i;
 
-	tab = ft_take_arguments(argc, argv, &size);
-	ft_sort_int_tab(tab, size);
+	tab = ft_take_arguments(&size, argc, argv);
+	if (tab)
+	{
+		ft_sort_int_tab(tab, size);
+		i = 0;
+		while (tab && i < size)
+		{
+			ft_putnbr_fd(tab[i++], 1);
+			ft_putchar_fd('\n', 1);
+		}
+		free_x((void **)&tab);
+	}
+	else
+		ft_putstr_fd("Tab was not allocated", 1);
 	return (0);
 }

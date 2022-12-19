@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/19 16:51:27 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/19 17:22:13 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -137,7 +137,7 @@ BONUS_H := $(addprefix $(BONUS_PATH), libft_bonus.h)
 GNL_H := $(addprefix $(GNL_PATH), get_next_line.h)
 X_H := $(addprefix $(X_PATH), libft_extra.h)
 DLL_H := $(addprefix $(DLL_PATH), dl_list.h)
-UTILS_H := $(addprefix $(DLL_PATH), utils.h)
+UTILS_H := $(addprefix $(UTILS_PATH), utils.h)
 MAND_HP := $(addprefix $(LIBFT_PATH), $(MAND_H))
 BONUS_HP := $(addprefix $(LIBFT_PATH), $(BONUS_H))
 GNL_HP := $(addprefix $(LIBFT_PATH), $(GNL_H))
@@ -157,9 +157,9 @@ $(NAME) : $(OBJ) $(HEADER) $(MAND_H)
 	@echo $(SRC_FP) $(HEADER_FP) $(MAND_HP) > $(NAME:.a=.d)
 
 -include $(DEPSB)
-bonus: $(OBJ) $(OBJB) $(OBJGNL) $(OBJX) $(OBJDLL) $(HEADER) $(MAND_H) $(GNL_H) $(X_H) $(BONUS_H) $(DLL_H)
-	$(LIBC) $(NAME) $(OBJ) $(OBJB) $(OBJX) $(OBJGNL) $(OBJDLL)
-	@echo $(SRC_FP) $(SRCB_FP) $(SRCGNL_FP) $(SRCX_FP) $(SRCDLL_FP)\
+bonus: $(OBJ) $(OBJB) $(OBJGNL) $(OBJX) $(OBJDLL) $(OBJU) $(HEADER) $(MAND_H) $(GNL_H) $(X_H) $(BONUS_H) $(DLL_H) $(UTILS_H)
+	$(LIBC) $(NAME) $(OBJ) $(OBJB) $(OBJX) $(OBJGNL) $(OBJDLL) $(OBJU)
+	@echo $(SRC_FP) $(SRCB_FP) $(SRCGNL_FP) $(SRCX_FP) $(SRCDLL_FP) $(SRCU_FP)\
 		$(HEADER_FP) $(MAND_HP) $(BONUS_HP) $(GNL_HP) $(X_HP) > $(NAME:.a=.d)
 	@touch $@
 
@@ -169,11 +169,13 @@ clean :
 	$(RM) $(OBJGNL)
 	$(RM) $(OBJX)
 	$(RM) $(OBJDLL)
+	$(RM) $(OBJU)
 	$(RM) $(DEPS)
 	$(RM) $(DEPSB)
 	$(RM) $(DEPSGNL)
 	$(RM) $(DEPSX)
 	$(RM) $(DEPSDLL)
+	$(RM) $(DEPSU)
 
 fclean : clean
 	$(RM) $(NAME)
