@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_duplicated.c                              :+:      :+:    :+:   */
+/*   ft_find_first_int.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 13:26:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 15:11:40 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/20 15:14:55 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/20 16:25:26 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include "utils.h"
 
-int	ft_check_duplicated(int *tab, size_t size)
+int	ft_find_first_int(int *tab, size_t size, \
+						int (*f)(unsigned int, int, int), int arg)
 {
-	size_t	i;
-	int		found_dup;
+	int	i;
 
-	found_dup = 0;
-	i = 1;
-	while (i < size)
+	if (tab && f)
 	{
-		if (tab[i] == tab[i - 1])
-		{
-			ft_log_error("A duplicated value was found\n");
-			return (0);
-		}
-		i++;
+		i = 0;
+		while (i < (int)size && !f(i, tab[i], arg))
+			i++;
+		if (i < (int)size)
+			return (i);
 	}
-	return (1);
+	return (-1);
 }

@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/20 13:43:20 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/20 16:21:30 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,11 @@ SRC_R:= push_swap.c
 
 SRCB_R:= push_swap_bonus.c
 
-SRCU_R:= ft_check_duplicated.c
+SRCU_R:= ft_check_duplicated.c\
+	ft_check_n_get_argument.c\
+	ft_take_arguments.c\
+	ft_log_error_exit.c\
+	ft_new_stack_el.c
 
 SRC_PATH := src/
 SRCB_PATH := src_bonus/

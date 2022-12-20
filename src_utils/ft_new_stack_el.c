@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_duplicated.c                              :+:      :+:    :+:   */
+/*   ft_new_stack_el.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 13:26:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 15:11:40 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/20 15:44:13 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/20 16:20:45 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_utils.h"
 
-int	ft_check_duplicated(int *tab, size_t size)
+t_dllist	*ft_new_stack_el(int nbr, int order)
 {
-	size_t	i;
-	int		found_dup;
+	t_stack_el	*content;
+	t_dllist	*node;
 
-	found_dup = 0;
-	i = 1;
-	while (i < size)
-	{
-		if (tab[i] == tab[i - 1])
-		{
-			ft_log_error("A duplicated value was found\n");
-			return (0);
-		}
-		i++;
-	}
-	return (1);
+	content = malloc(sizeof(t_stack_el));
+	if (!content)
+		return (NULL);
+	content->nbr = nbr;
+	content->order = order;
+	node = ft_dllstnew(content);
+	if (! node)
+		free(content);
+	return (node);
 }

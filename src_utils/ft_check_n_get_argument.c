@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_duplicated.c                              :+:      :+:    :+:   */
+/*   ft_check_n_get_argument.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 13:26:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 15:11:40 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/20 14:35:51 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/20 14:36:40 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include "../libft/libft.h"
 
-int	ft_check_duplicated(int *tab, size_t size)
+int	ft_check_n_get_argument(const char *s, int *nbr)
 {
-	size_t	i;
-	int		found_dup;
+	char	*clone;
+	int		res;
 
-	found_dup = 0;
-	i = 1;
-	while (i < size)
-	{
-		if (tab[i] == tab[i - 1])
-		{
-			ft_log_error("A duplicated value was found\n");
-			return (0);
-		}
-		i++;
-	}
-	return (1);
+	if (! s || ! s[0])
+		return (0);
+	if (s[0] == '+')
+		s++;
+	*nbr = ft_atoi(s);
+	clone = ft_itoa(*nbr);
+	res = ! ft_strncmp(s, clone, 20);
+	free_x ((void **)&clone);
+	return (res);
 }

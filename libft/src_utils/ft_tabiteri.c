@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_duplicated.c                              :+:      :+:    :+:   */
+/*   ft_tabiteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 13:26:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 15:11:40 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/09/21 09:25:28 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/20 15:05:21 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include "utils.h"
 
-int	ft_check_duplicated(int *tab, size_t size)
+void	ft_tabiteri(int *tab, size_t size, void (*f)(unsigned int, int*))
 {
 	size_t	i;
-	int		found_dup;
 
-	found_dup = 0;
-	i = 1;
-	while (i < size)
+	if (tab && f)
 	{
-		if (tab[i] == tab[i - 1])
+		i = 0;
+		while (i < size)
 		{
-			ft_log_error("A duplicated value was found\n");
-			return (0);
+			f(i, tab + i);
+			i++;
 		}
-		i++;
 	}
-	return (1);
 }
