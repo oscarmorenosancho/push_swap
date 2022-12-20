@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_check_duplicated.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 16:12:35 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 13:46:05 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/20 13:26:33 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/20 13:28:00 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libft/libft.h"
-# include "../src_utils/push_swap_utils.h"
+#include "push_swap_utils.h"
 
-#endif
+int	ft_check_duplicated(int *tab, size_t size)
+{
+	size_t	i;
+	int		found_dup;
+
+	found_dup = 0;
+	i = 1;
+	while (i < size)
+	{
+		if (tab[i] == tab[i - 1])
+		{
+			ft_log_error("A duplicated value was found\n");
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}

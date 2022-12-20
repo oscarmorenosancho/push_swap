@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_clone_int_tab.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 16:12:35 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 13:46:05 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/20 13:01:46 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/20 13:18:18 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libft/libft.h"
-# include "../src_utils/push_swap_utils.h"
+#include "../libft.h"
 
-#endif
+int	*ft_clone_int_tab(const int *src, size_t size)
+{
+	int		*dst;
+
+	if (size < 1 || ! src)
+		return (NULL);
+	dst = malloc (size * sizeof(int));
+	if (dst)
+		ft_memcpy(dst, src, size * sizeof(int));
+	return (dst);
+}

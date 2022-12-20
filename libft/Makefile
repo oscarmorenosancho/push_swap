@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/19 17:22:13 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/20 13:18:46 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,8 @@ SRCX := ft_copy_pos.c\
 	ft_str_merge.c\
 	ft_str_join_char.c
 
-SRCU := ft_sort_int_tab.c
+SRCU := ft_sort_int_tab.c\
+	ft_clone_int_tab.c 
 
 SRCDLL := ft_dllstnew.c\
 	ft_dllstadd_front.c\

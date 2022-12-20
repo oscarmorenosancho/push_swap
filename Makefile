@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/19 16:20:53 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/20 13:43:20 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,19 +17,26 @@ SRC_R:= push_swap.c
 
 SRCB_R:= push_swap_bonus.c
 
+SRCU_R:= ft_check_duplicated.c
+
 SRC_PATH := src/
 SRCB_PATH := src_bonus/
+SRCU_PATH := src_utils/
 LIBFT_PATH := libft/
 
 SRC := ${addprefix $(SRC_PATH), $(SRC_R)}
 
 SRCB := ${addprefix $(SRCB_PATH), $(SRCB_R)}
 
+SRCU := ${addprefix $(SRCU_PATH), $(SRCU_R)}
+
 OBJ := $(SRC:.c=.o)
 OBJB := $(SRCB:.c=.o)
+OBJU := $(SRCU:.c=.o)
 
 DEPS := $(SRC:.c=.d)
 DEPSB := $(SRCB:.c=.d)
+DEPSU := $(SRCU:.c=.d)
 
 CC	:= 	gcc
 CFLAGS := -Wall -Werror -Wextra
@@ -38,17 +45,21 @@ RM	:= 	rm -f
 
 HEADER := ${addprefix $(SRC_PATH), push_swap.h}
 HEADERB := ${addprefix $(SRCB_PATH), push_swap_bonus.h}
+HEADERU := ${addprefix $(SRCU_PATH), push_swap_utils.h}
 LIBFT_H := ${addprefix $(LIBFT_PATH), libft.h}
 LIBFT_A := ${addprefix $(LIBFT_PATH), libft.a}
 LIBFT_D := ${addprefix $(LIBFT_PATH), libft.d}
 LIBS_FLAGS := -I ${LIBFT_H}
 LIBFT_D_CONT := $(shell cat ${LIBFT_D})
 
-src/%.o : src/%.c ${HEADER}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADER} -I ${LIBFT_H} -c $< -o $@
+$(SRC_PATH)/%.o : $(SRC_PATH)/%.c ${HEADER} ${HEADERU}
+	${CC} ${CFLAGS} ${CFD} -I ${HEADER} -I ${HEADERU} -I ${LIBFT_H} -c $< -o $@
 
-src_bonus/%.o : src_bonus/%.c ${HEADERB}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADERB} -I ${LIBFT_H} -c $< -o $@
+$(SRCB_PATH)/%.o : $(SRCB_PATH)/%.c ${HEADERB} ${HEADERU}
+	${CC} ${CFLAGS} ${CFD} -I ${HEADERB} -I ${HEADERU} -I ${LIBFT_H} -c $< -o $@
+
+$(SRCU_PATH)/%.o : $(SRCU_PATH)/%.c ${HEADERU}
+	${CC} ${CFLAGS} ${CFD} -I ${HEADERU} -I ${LIBFT_H} -c $< -o $@
 
 all : $(NAME)
 
@@ -56,12 +67,12 @@ bonus : $(NAMEB)
 	@touch $@
 
 -include $(DEPS)
-$(NAME) : ${LIBFT_A} ${OBJ}
-	${CC} ${CFLAGS} -I ${HEADER} ${LIBS_FLAGS} ${OBJ} ${LIBFT_A}  -o $@
+$(NAME) : ${LIBFT_A} ${OBJ} ${OBJU}
+	${CC} ${CFLAGS} -I ${HEADER} ${LIBS_FLAGS} ${OBJ} ${OBJU} ${LIBFT_A}  -o $@
 
 -include $(DEPSB)
-$(NAMEB) : ${LIBFT_A} ${OBJB}
-	${CC} ${CFLAGS} -I ${HEADERB} ${LIBS_FLAGS} ${OBJB} ${LIBFT_A} -o $@
+$(NAMEB) : ${LIBFT_A} ${OBJB} ${OBJU}
+	${CC} ${CFLAGS} -I ${HEADERB} ${LIBS_FLAGS} ${OBJB} ${OBJU} ${LIBFT_A} -o $@
 
 ${LIBFT_A} : ${LIBFT_D_CONT}
 	make bonus -C libft
@@ -69,8 +80,10 @@ ${LIBFT_A} : ${LIBFT_D_CONT}
 clean :
 	$(RM) $(OBJ)
 	$(RM) $(OBJB)
+	$(RM) $(OBJU)
 	$(RM) $(DEPS)
 	$(RM) $(DEPSB)
+	$(RM) $(DEPSU)
 	make clean -C libft
 
 fclean : clean
