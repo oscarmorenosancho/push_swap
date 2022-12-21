@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 14:09:25 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:56:38 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ static void	ft_print_el(void *content)
 int	main(int argc, char const *argv[])
 {
 	t_prog_data	d;
+	int			loc;
+	t_dllist	*node;
+	int			range[2];
 
 	d.tab = ft_take_arguments(&d.size, argc, argv);
 	if (d.tab)
@@ -89,6 +92,21 @@ int	main(int argc, char const *argv[])
 			ft_dllstiter(d.stack_a, &ft_print_el);
 			ft_putstr_fd("STACK B\n", 1);
 			ft_dllstiter(d.stack_b, &ft_print_el);
+			ft_putstr_fd("FIRST IN RANGE 20, 900\n", 1);
+			range[0] = 20;
+			range[1] = 900;
+			node = ft_dllstfindfirstinrange(&loc, d.stack_a, range);
+			ft_putnbr_fd(loc, 1);
+			if (loc != -1)
+			{
+				ft_putstr_fd("\n node order :", 1);
+				ft_putnbr_fd(((t_stack_el *)node->content)->order, 1);
+				ft_putstr_fd(" node nbr : ", 1);
+				ft_putnbr_fd(((t_stack_el *)node->content)->nbr, 1);
+				ft_putstr_fd("\n", 1);
+			}
+			else
+				ft_putstr_fd("\nnot found\n", 1);
 		}
 		free_x((void **)&d.sorted);
 		free_x((void **)&d.tab);

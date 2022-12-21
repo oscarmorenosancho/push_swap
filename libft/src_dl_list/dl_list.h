@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 12:24:24 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 11:35:00 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:18:18 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,9 @@ void		ft_dllst_revrotate(t_dllist **lst);
 void		ft_dllst_swap(t_dllist **lst);
 t_dllist	*ft_dllst_extract(t_dllist **lst);
 void		ft_dllst_push(t_dllist **dst, t_dllist **src);
+t_dllist	*ft_dllstfindfirst(int *loc, t_dllist *lst, \
+			int (*f)(unsigned int, void *, void *), void *arg);
+t_dllist	*ft_dllstfindfirstrev(int *loc, t_dllist *lst, \
+			int (*f)(unsigned int, void *, void *), void *arg);
 
 #endif

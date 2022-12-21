@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 16:17:16 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:53:07 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int			ft_check_n_get_argument(const char *s, int *nbr);
 int			*ft_take_arguments(size_t *size, int argc, char const *argv[]);
 void		ft_log_err_exit(char *msg, int **p);
 t_dllist	*ft_new_stack_el(int nbr, int order);
+t_dllist	*ft_dllstfindfirstinrange(int *loc, t_dllist *lst, int *range);
+t_dllist	*ft_dllstfindfirstinrangerev(int *loc, t_dllist *lst, int *range);
 
 #endif
