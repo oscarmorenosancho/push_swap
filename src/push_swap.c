@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 17:13:12 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/21 12:32:04 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ static t_dllist	*ft_fill_stack_with_arg(int *tab, int *sorted, size_t size)
 {
 	t_dllist	*dll;
 	t_dllist	*nn;
-	size_t		i;
+	int			i;
 	int			loc;
 
-	i = 0;
 	dll = NULL;
-	if (! tab || ! sorted || size < 1)
+	if (! tab || ! sorted || size == 0)
 		return (NULL);
-	while (i < size)
+	i = size - 1;
+	while (i >= 0)
 	{
 		loc = ft_find_first_int(sorted, size, &ft_equal_int, tab[i]);
 		nn = ft_new_stack_el(tab[i], loc);
@@ -52,9 +52,21 @@ static t_dllist	*ft_fill_stack_with_arg(int *tab, int *sorted, size_t size)
 			ft_dllstclear(&dll, &free);
 			return (NULL);
 		}
-		i++;
+		i--;
 	}
 	return (dll);
+}
+
+static void	ft_print_el(void *content)
+{
+	t_stack_el	*el;
+
+	el = content;
+	ft_putstr_fd("nbr: ", 1);
+	ft_putnbr_fd(el->nbr, 1);
+	ft_putstr_fd(", order: ", 1);
+	ft_putnbr_fd(el->order, 1);
+	ft_putchar_fd('\n', 1);
 }
 
 int	main(int argc, char const *argv[])
@@ -63,20 +75,21 @@ int	main(int argc, char const *argv[])
 	int			*sorted;
 	size_t		size;
 	t_dllist	*stack_a;
-	void		*fnt;
 
-	fnt = ft_fill_stack_with_arg;
 	tab = ft_take_arguments(&size, argc, argv);
 	if (tab)
 	{
-		ft_sort_int_tab(tab, size);
+		ft_putstr_fd("tab\n", 1);
+		ft_tabiteri(tab, size, &ft_print_int);
 		sorted = ft_clone_int_tab(tab, size);
 		if (! sorted)
 			ft_log_err_exit("malloc failed when alocating memory\n", &tab);
+		ft_sort_int_tab(sorted, size);
 		if (ft_check_duplicated(sorted, size))
 		{
-			ft_tabiteri(sorted, size, &ft_print_int);
 			stack_a = ft_fill_stack_with_arg(tab, sorted, size);
+			ft_putstr_fd("STACK\n", 1);
+			ft_dllstiter(stack_a, &ft_print_el);
 		}
 		free_x((void **)&sorted);
 		free_x((void **)&tab);

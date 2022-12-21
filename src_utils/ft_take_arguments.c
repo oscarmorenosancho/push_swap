@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   take_arguments.c                                   :+:      :+:    :+:   */
+/*   ft_take_arguments.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:53:12 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 14:54:16 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/21 09:52:48 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	*ft_take_arguments(size_t *size, int argc, char const *argv[])
 		{
 			ok = ft_check_n_get_argument(argv[i], &nbr);
 			if (! ok)
-				ft_log_err_exit("All arguments must be decimal numbers\n", &tab);
+				ft_log_err_exit("All arg. must be integer dec. numbers\n", &tab);
 			tab[i - 1] = nbr;
 			i++;
 		}

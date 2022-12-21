@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dllstsize.c                                     :+:      :+:    :+:   */
+/*   ft_dllstiterrev.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 19:12:02 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 12:21:30 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/21 11:34:31 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/21 11:53:44 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dl_list.h"
 
-int	ft_dllstsize(t_dllist *lst)
+void	ft_dllstiterrev(t_dllist *lst, void (*f)(void *))
 {
-	int			i;
 	t_dllist	*cur;
-	int			next_is_head;
+	int			next_is_last;
 
-	if (! lst)
-		return (0);
-	cur = lst;
-	i = 0;
-	next_is_head = 0;
-	while (cur && !next_is_head)
+	next_is_last = 0;
+	if (!lst)
+		return ;
+	cur = lst->prev;
+	if (f)
 	{
-		i++;
-		cur = cur->next;
-		next_is_head = (cur == lst);
+		while (cur && ! next_is_last)
+		{	
+			(*f)((void *)cur->content);
+			cur = cur->prev;
+			next_is_last = (cur == lst->prev);
+		}
 	}
-	return (i);
 }

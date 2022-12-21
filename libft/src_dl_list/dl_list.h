@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 12:24:24 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 16:34:59 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/21 11:35:00 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void		ft_dllstadd_back(t_dllist **lst, t_dllist *nn);
 void		ft_dllstdelone(t_dllist *lst, void (*del)(void *));
 void		ft_dllstclear(t_dllist **lst, void (*del)(void *));
 void		ft_dllstiter(t_dllist *lst, void (*f)(void *));
+void		ft_dllstiterrev(t_dllist *lst, void (*f)(void *));
 t_dllist	*ft_dllstmap(t_dllist *lst, void *(*f)(void *), \
 			void (*del)(void *));
 void		ft_dllst_rotate(t_dllist **lst);

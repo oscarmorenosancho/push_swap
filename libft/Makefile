@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/20 15:23:26 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/21 11:37:07 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,7 @@ SRCDLL := ft_dllstnew.c\
 	ft_dllstdelone.c\
 	ft_dllstclear.c\
 	ft_dllstiter.c\
+	ft_dllstiterrev.c\
 	ft_dllstmap.c\
 	ft_dllst_extract.c\
 	ft_dllst_push.c\
