@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 15:53:07 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/21 16:58:07 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void		ft_log_err_exit(char *msg, int **p);
 t_dllist	*ft_new_stack_el(int nbr, int order);
 t_dllist	*ft_dllstfindfirstinrange(int *loc, t_dllist *lst, int *range);
 t_dllist	*ft_dllstfindfirstinrangerev(int *loc, t_dllist *lst, int *range);
+int			ft_stack_head_order_n_bit(t_dllist *dll, int n);
 
 #endif

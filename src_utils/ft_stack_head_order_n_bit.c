@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_stack_head_order_n_bit.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 16:12:35 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 16:27:59 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/21 16:13:15 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/21 16:58:21 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libft/libft.h"
-# include "../src_utils/push_swap_utils.h"
+#include "push_swap_utils.h"
 
-typedef struct s_prog_data
+int	ft_stack_head_order_n_bit(t_dllist *dll, int n)
 {
-	int			*tab;
-	int			*sorted;
-	size_t		size;
-	t_dllist	*stack_a;
-	t_dllist	*stack_b;
-}	t_prog_data;
+	t_stack_el	*el;
 
-#endif
+	if (!dll)
+		return (-1);
+	el = dll->content;
+	return ((el->order >> n) & 1);
+}
