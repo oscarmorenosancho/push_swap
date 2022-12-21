@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/21 16:55:29 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/21 18:05:51 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCU_R:= ft_check_duplicated.c\
 	ft_log_error_exit.c\
 	ft_new_stack_el.c\
 	ft_dllstfindfirstinrange.c\
-	ft_stack_head_order_n_bit.c
+	ft_stack_head_order_n_bit.c\
+	ft_putstackcmd_fd.c
 
 SRC_PATH := src/
 SRCB_PATH := src_bonus/
@@ -58,13 +59,13 @@ LIBFT_D := ${addprefix $(LIBFT_PATH), libft.d}
 LIBS_FLAGS := -I ${LIBFT_H}
 LIBFT_D_CONT := $(shell cat ${LIBFT_D})
 
-$(SRC_PATH)/%.o : $(SRC_PATH)/%.c ${HEADER} ${HEADERU}
+src/%.o : src/%.c ${HEADER} ${HEADERU}
 	${CC} ${CFLAGS} ${CFD} -I ${HEADER} -I ${HEADERU} -I ${LIBFT_H} -c $< -o $@
 
-$(SRCB_PATH)/%.o : $(SRCB_PATH)/%.c ${HEADERB} ${HEADERU}
+src_bonus/%.o : src_bonus/%.c ${HEADERB} ${HEADERU}
 	${CC} ${CFLAGS} ${CFD} -I ${HEADERB} -I ${HEADERU} -I ${LIBFT_H} -c $< -o $@
 
-$(SRCU_PATH)/%.o : $(SRCU_PATH)/%.c ${HEADERU}
+src_utils/%.o : src_utils/%.c ${HEADERU}
 	${CC} ${CFLAGS} ${CFD} -I ${HEADERU} -I ${LIBFT_H} -c $< -o $@
 
 all : $(NAME)
