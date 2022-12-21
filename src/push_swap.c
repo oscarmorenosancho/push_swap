@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 12:32:04 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/21 14:09:25 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,25 @@ static t_dllist	*ft_fill_stack_with_arg(int *tab, int *sorted, size_t size)
 {
 	t_dllist	*dll;
 	t_dllist	*nn;
-	int			i;
+	size_t		i;
 	int			loc;
 
 	dll = NULL;
 	if (! tab || ! sorted || size == 0)
 		return (NULL);
-	i = size - 1;
-	while (i >= 0)
+	i = 0;
+	while (i < size)
 	{
 		loc = ft_find_first_int(sorted, size, &ft_equal_int, tab[i]);
 		nn = ft_new_stack_el(tab[i], loc);
 		if (nn)
-			ft_dllstadd_front(&dll, nn);
+			ft_dllstadd_back(&dll, nn);
 		else
 		{
 			ft_dllstclear(&dll, &free);
 			return (NULL);
 		}
-		i--;
+		i++;
 	}
 	return (dll);
 }
@@ -71,29 +71,29 @@ static void	ft_print_el(void *content)
 
 int	main(int argc, char const *argv[])
 {
-	int			*tab;
-	int			*sorted;
-	size_t		size;
-	t_dllist	*stack_a;
+	t_prog_data	d;
 
-	tab = ft_take_arguments(&size, argc, argv);
-	if (tab)
+	d.tab = ft_take_arguments(&d.size, argc, argv);
+	if (d.tab)
 	{
 		ft_putstr_fd("tab\n", 1);
-		ft_tabiteri(tab, size, &ft_print_int);
-		sorted = ft_clone_int_tab(tab, size);
-		if (! sorted)
-			ft_log_err_exit("malloc failed when alocating memory\n", &tab);
-		ft_sort_int_tab(sorted, size);
-		if (ft_check_duplicated(sorted, size))
+		ft_tabiteri(d.tab, d.size, &ft_print_int);
+		d.sorted = ft_clone_int_tab(d.tab, d.size);
+		if (! d.sorted)
+			ft_log_err_exit("malloc failed when alocating memory\n", &d.tab);
+		ft_sort_int_tab(d.sorted, d.size);
+		if (ft_check_duplicated(d.sorted, d.size))
 		{
-			stack_a = ft_fill_stack_with_arg(tab, sorted, size);
-			ft_putstr_fd("STACK\n", 1);
-			ft_dllstiter(stack_a, &ft_print_el);
+			d.stack_a = ft_fill_stack_with_arg(d.tab, d.sorted, d.size);
+			ft_putstr_fd("STACK A\n", 1);
+			ft_dllstiter(d.stack_a, &ft_print_el);
+			ft_putstr_fd("STACK B\n", 1);
+			ft_dllstiter(d.stack_b, &ft_print_el);
 		}
-		free_x((void **)&sorted);
-		free_x((void **)&tab);
-		ft_dllstclear(&stack_a, &free);
+		free_x((void **)&d.sorted);
+		free_x((void **)&d.tab);
+		ft_dllstclear(&d.stack_a, &free);
+		ft_dllstclear(&d.stack_b, &free);
 	}
 	return (0);
 }

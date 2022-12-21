@@ -6,11 +6,12 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:56:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 10:38:58 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/21 14:04:27 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dl_list.h"
+#include "../libft.h"
 
 static t_dllist	*ft_applyftonode(t_dllist *curnode, void *(*f)(void *), \
 	void (*del)(void *))
@@ -39,7 +40,7 @@ t_dllist	*ft_dllstmap(t_dllist *lst, void *(*f)(void *), void (*del)(void *))
 	t_dllist	*newnode;
 	int			next_is_head;
 
-	newlist = 0;
+	newlist = NULL;
 	cur = lst;
 	next_is_head = 0;
 	while (cur && ! next_is_head)
