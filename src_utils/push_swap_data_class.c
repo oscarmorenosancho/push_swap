@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_log_error_exit.c                                :+:      :+:    :+:   */
+/*   push_swap_data_class.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 14:57:24 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 13:14:45 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/22 12:34:44 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/22 12:46:20 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_utils.h"
 
-void	ft_log_err_exit(char *msg, t_push_swap_data **p)
+t_push_swap_data	*psd_constructor(void)
 {
-	ft_log_error(msg);
-	psd_dispose(p);
-	exit (-1);
+	t_push_swap_data	*psd;
+
+	psd = ft_calloc(1, sizeof(t_push_swap_data));
+	psd->stack_a = pss_constructor();
+	psd->stack_b = pss_constructor();
+	return (psd);
+}
+
+void	psd_dispose(t_push_swap_data **psd)
+{
+	t_push_swap_data	*d;
+
+	if (!psd)
+		return ;
+	d = *psd;
+	free_x((void **)&d->sorted);
+	free_x((void **)&d->tab);
+	pss_dispose(&d->stack_a);
+	pss_dispose(&d->stack_b);
 }

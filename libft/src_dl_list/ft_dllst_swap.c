@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 14:52:46 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/19 15:20:24 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/22 11:49:24 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	ft_dllst_swap(t_dllist **lst)
 	t_dllist	*scd;
 	t_dllist	*thrd;
 
-	if (lst && *lst && (*lst)->next)
+	if (lst && *lst && (*lst)->next && (*lst)->prev \
+		&& (*lst)->next != (*lst))
 	{
 		head = *lst;
 		last = head->prev;

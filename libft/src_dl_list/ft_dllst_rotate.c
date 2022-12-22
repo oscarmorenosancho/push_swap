@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 14:52:46 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/19 14:56:33 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/22 11:51:17 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_dllst_rotate(t_dllist **lst)
 {
-	if (lst && *lst)
+	if (lst && *lst && (*lst)->next && \
+		(*lst)->next != (*lst))
 		*lst = (*lst)->next;
 }

@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_log_error_exit.c                                :+:      :+:    :+:   */
+/*   ft_check_stack_ordered.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 14:57:24 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 13:14:45 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/22 10:33:40 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/22 12:26:38 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_utils.h"
 
-void	ft_log_err_exit(char *msg, t_push_swap_data **p)
+static int	ft_is_le_prev(unsigned int i, void *it_cont, void *arg)
 {
-	ft_log_error(msg);
-	psd_dispose(p);
-	exit (-1);
+	int			*prev_val;
+	int			res;
+	t_stack_el	*el;
+
+	(void)i;
+	prev_val = arg;
+	el = it_cont;
+	res = (el->order <= *prev_val);
+	*prev_val = el->order;
+	return (res);
+}
+
+int	ft_check_stack_ordered(t_dllist *dll)
+{
+	int	loc;
+	int	prev_val;
+
+	if (! dll)
+		return (1);
+	prev_val = -1;
+	return (! ft_dllstfindfirst(&loc, dll, &ft_is_le_prev, &prev_val));
 }
