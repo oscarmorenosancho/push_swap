@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 15:45:35 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:06:41 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_push_swap_data
 	size_t		size;
 	t_ps_stack	*stack_a;
 	t_ps_stack	*stack_b;
+	t_list		*cmd_list;
 }	t_push_swap_data;
 
 int					ft_check_duplicated(int *tab, size_t size);
@@ -80,5 +81,6 @@ t_ps_stack			*ft_fill_stack_with_tab(t_ps_stack	*dst, int *tab, \
 						int *sorted, size_t size);
 t_push_swap_data	*psd_constructor(void);
 void				psd_dispose(t_push_swap_data **psd);
+int					psd_apply_cmd(t_push_swap_data *psd, t_stack_cmd sc);
 
 #endif

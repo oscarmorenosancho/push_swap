@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 16:13:55 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:08:45 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,15 @@ static void	ft_process_valid_data(t_push_swap_data *d)
 	pss_push(d->stack_b, d->stack_a);
 	pss_push(d->stack_b, d->stack_a);
 	pss_rotate(d->stack_a);
-	pss_rotate(d->stack_a);*/
+	pss_rotate(d->stack_a);
 	pss_push(d->stack_b, d->stack_a);
 	pss_swap(d->stack_a);
 	pss_push(d->stack_b, d->stack_a);
 	pss_rotate(d->stack_a);
-	pss_revrotate(d->stack_a);
+	pss_revrotate(d->stack_a);*/
+	psd_apply_cmd(d, pb);
+	psd_apply_cmd(d, pb);
+	psd_apply_cmd(d, ss);
 	ft_putstr_fd("\n====\n", 1);
 	ft_print_stacks(d, "----------\n");
 	if (ft_check_stack_ordered(d->stack_a->dll))
