@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/23 15:00:48 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/23 18:22:05 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRCU_R:= ft_check_duplicated.c\
 	push_swap_data_class.c\
 	push_swap_data_class2.c\
 	ft_fill_stack_with_arg.c\
-	ft_read_n_play_cmd_list_fd.c
+	ft_read_n_play_cmd_list_fd.c\
+	ft_sort_3_list.c
 
 SRC_PATH := src/
 SRCB_PATH := src_bonus/
