@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 17:08:45 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/23 12:28:58 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,24 @@ static void	ft_print_int(unsigned int i, int *tab)
 		ft_log_error("table or element does not exist\n");
 }
 
+static void	ft_apply_cmds(t_push_swap_data *d)
+{
+	psd_apply_cmd(d, ss);
+	psd_apply_cmd_xn(d, pb, 1);
+}
+
 static void	ft_process_valid_data(t_push_swap_data *d)
 {
 	d->stack_a = ft_fill_stack_with_tab(d->stack_a, \
 					d->tab, d->sorted, d->size);
 	ft_print_stacks(d, "-----------\t-----------\t-----------\t-----------\n");
-	/*pss_push(d->stack_b, d->stack_a);
-	pss_push(d->stack_b, d->stack_a);
-	pss_push(d->stack_b, d->stack_a);
-	pss_push(d->stack_b, d->stack_a);
-	pss_rotate(d->stack_a);
-	pss_rotate(d->stack_a);
-	pss_push(d->stack_b, d->stack_a);
-	pss_swap(d->stack_a);
-	pss_push(d->stack_b, d->stack_a);
-	pss_rotate(d->stack_a);
-	pss_revrotate(d->stack_a);*/
-	psd_apply_cmd(d, pb);
-	psd_apply_cmd(d, pb);
-	psd_apply_cmd(d, ss);
 	ft_putstr_fd("\n====\n", 1);
-	ft_print_stacks(d, "----------\n");
+	ft_apply_cmds(d);
+	ft_print_stacks(d, "-----------\t-----------\t-----------\t-----------\n");
+	ft_putstr_fd("\n====\nList of commands applied\n", 1);
+	d->cmd_list = ft_lstreverse(&d->cmd_list);
+	ft_putstackcmdlst_fd(d->cmd_list, 1);
+	ft_putstr_fd("\n====\n", 1);
 	if (ft_check_stack_ordered(d->stack_a->dll))
 		ft_putstr_fd("stack A is ordered\n", 1);
 	else

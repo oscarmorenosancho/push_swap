@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 17:06:41 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/23 11:33:13 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,18 @@
 
 typedef enum e_stack_cmd
 {
-	sa = 0,
-	sb = 1,
-	ss = 2,
-	pa = 3,
-	pb = 4,
-	ra = 5,
-	rb = 6,
-	rr = 7,
-	rra = 8,
-	rrb = 9,
-	rrr = 10
+	nop,
+	sa,
+	sb,
+	ss,
+	pa,
+	pb,
+	ra,
+	rb,
+	rr,
+	rra,
+	rrb,
+	rrr
 }	t_stack_cmd;
 
 typedef struct s_stack_el
@@ -63,6 +64,8 @@ t_dllist			*ft_dllstfindfirstinrangerev(int *loc, \
 						t_dllist *lst, int *range);
 int					ft_stack_head_order_n_bit(t_dllist *dll, int n);
 void				ft_putstackcmd_fd(t_stack_cmd sc, int fd);
+void				ft_putstackcmdlst_fd(t_list *scl, int fd);
+t_stack_cmd			ft_getstackcmd(char *sc);
 int					ft_check_stack_ordered(t_dllist *dll);
 t_ps_stack			*pss_constructor(void);
 void				pss_clear(t_ps_stack *pss);
@@ -82,5 +85,7 @@ t_ps_stack			*ft_fill_stack_with_tab(t_ps_stack	*dst, int *tab, \
 t_push_swap_data	*psd_constructor(void);
 void				psd_dispose(t_push_swap_data **psd);
 int					psd_apply_cmd(t_push_swap_data *psd, t_stack_cmd sc);
+int					psd_apply_cmd_xn(t_push_swap_data *psd, t_stack_cmd sc, \
+						size_t n);
 
 #endif

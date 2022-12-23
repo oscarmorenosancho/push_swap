@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:34:44 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 17:03:12 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/23 12:00:05 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	psd_dispose(t_push_swap_data **psd)
 	free_x((void **)&d->tab);
 	pss_dispose(&d->stack_a);
 	pss_dispose(&d->stack_b);
-	ft_lstclear(&d->cmd_list, &free);
+	ft_lstclear(&d->cmd_list, NULL);
 }
 
 static void	psd_exe_c_cmd(t_push_swap_data *psd, t_stack_cmd sc)
@@ -80,22 +80,14 @@ static void	psd_exe_cmd(t_push_swap_data *psd, t_stack_cmd sc)
 
 int	psd_apply_cmd(t_push_swap_data *psd, t_stack_cmd sc)
 {
-	t_stack_cmd	*nc;
 	t_list		*ln;
 
 	if (! psd)
 		return (0);
-	nc = malloc(sizeof(t_stack_cmd));
-	if (! nc)
-		return (0);
-	*nc = sc;
 	ln = ft_calloc(1, sizeof(t_list));
 	if (! ln)
-	{
-		free (nc);
 		return (0);
-	}
-	ln->content = nc;
+	ln->content = (void *)sc;
 	ft_lstadd_front(&psd->cmd_list, ln);
 	psd_exe_cmd(psd, sc);
 	return (1);
