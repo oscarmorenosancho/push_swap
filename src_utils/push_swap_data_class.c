@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:34:44 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/23 12:00:05 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/23 12:43:43 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	psd_dispose(t_push_swap_data **psd)
 	pss_dispose(&d->stack_a);
 	pss_dispose(&d->stack_b);
 	ft_lstclear(&d->cmd_list, NULL);
+	free(d);
+	d = NULL;
 }
 
 static void	psd_exe_c_cmd(t_push_swap_data *psd, t_stack_cmd sc)
