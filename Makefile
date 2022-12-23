@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/23 13:02:39 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/23 15:00:48 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCU_R:= ft_check_duplicated.c\
 	stack_class.c\
 	stack_class2.c\
 	ft_getstackcmd.c\
+	ft_print_tab.c\
 	ft_print_stack.c\
 	ft_print_stacks.c\
 	push_swap_data_class.c\

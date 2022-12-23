@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/23 13:00:38 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/23 15:01:18 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void				pss_push(t_ps_stack *dst, t_ps_stack *src);
 void				pss_swap(t_ps_stack *pss);
 void				pss_rotate(t_ps_stack *pss);
 void				pss_revrotate(t_ps_stack *pss);
+void				ft_print_tab(int *tab, size_t size);
 void				ft_print_el(void *content);
 void				ft_print_stack(t_ps_stack *stack, char name, char *sep);
 void				ft_print_stacks(t_push_swap_data *d, char *sep);
