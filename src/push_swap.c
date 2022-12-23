@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/23 12:44:03 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/23 13:28:12 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,15 @@ static void	ft_print_int(unsigned int i, int *tab)
 
 static void	ft_apply_cmds(t_push_swap_data *d)
 {
-	psd_apply_cmd(d, ss);
-	psd_apply_cmd_xn(d, pb, 1);
+	ft_read_n_play_cmd_list_fd(d, 0);
 }
 
 static void	ft_process_valid_data(t_push_swap_data *d)
 {
 	d->stack_a = ft_fill_stack_with_tab(d->stack_a, \
 					d->tab, d->sorted, d->size);
+	free_x((void **)&d->sorted);
+	free_x((void **)&d->tab);
 	ft_print_stacks(d, "-----------\t-----------\t-----------\t-----------\n");
 	ft_putstr_fd("\n====\n", 1);
 	ft_apply_cmds(d);
