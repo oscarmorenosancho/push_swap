@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/23 18:21:42 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/27 11:22:04 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ int					psd_apply_cmd(t_push_swap_data *psd, t_stack_cmd sc);
 int					psd_apply_cmd_xn(t_push_swap_data *psd, t_stack_cmd sc, \
 						size_t n);
 void				ft_read_n_play_cmd_list_fd(t_push_swap_data	*psd, int fd);
-void				ft_sort_3_list(t_push_swap_data *d);
+void				ft_sort_2_a_b(t_push_swap_data *d);
+void				ft_sort_2_b_a(t_push_swap_data *d);
+void				ft_sort_3_a(t_push_swap_data *d);
 
 #endif

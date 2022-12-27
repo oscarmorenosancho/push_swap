@@ -1,51 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_3_list.c                                   :+:      :+:    :+:   */
+/*   ft_sort_3_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:56:11 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/23 18:23:35 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/27 11:23:29 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_utils.h"
 
-static void	ft_contents_3(int *fc, int *sc, int *tc, t_push_swap_data *d)
+static void	ft_contents_3(int *fc, int *sc, int *tc, t_ps_stack *stack)
 {
 	t_dllist	*frst;
 	t_dllist	*scd;
 	t_dllist	*thrd;
 
-	frst = (t_dllist *)(d->stack_a);
+	frst = stack->dll;
 	scd = frst->next;
 	thrd = scd->next;
 	*fc = ((t_stack_el *)frst->content)->order;
 	*sc = ((t_stack_el *)scd->content)->order;
 	*tc = ((t_stack_el *)thrd->content)->order;
+	ft_putnbr_fd(*fc, 1);
+	ft_putstr_fd(", ", 1);
+	ft_putnbr_fd(*sc, 1);
+	ft_putstr_fd(", ", 1);
+	ft_putnbr_fd(*tc, 1);
+	ft_putstr_fd("\n", 1);
 }
 
-void	ft_sort_3_list(t_push_swap_data *d)
+void	ft_sort_3_a(t_push_swap_data *d)
 {
 	int	fc;
 	int	sc;
 	int	tc;
 
-	ft_contents_3(&fc, &sc, &tc, d);
+	ft_contents_3(&fc, &sc, &tc, d->stack_a);
 	if (fc > sc && fc > tc)
-	{
-		psd_apply_cmd(d, rra);
-		ft_contents_3(&fc, &sc, &tc, d);
-	}
-	else if (sc > fc && sc > tc)
-	{
 		psd_apply_cmd(d, ra);
-		ft_contents_3(&fc, &sc, &tc, d);
-	}
-	if (fc > sc)
-	{
-		psd_apply_cmd(d, sa);
-		ft_contents_3(&fc, &sc, &tc, d);
-	}
+	else if (sc > fc && sc > tc)
+		psd_apply_cmd(d, rra);
+	ft_sort_2_a_b(d);
 }
