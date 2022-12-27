@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_4_5_a.c                                    :+:      :+:    :+:   */
+/*   ft_ins_into_4.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 11:31:31 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/27 17:15:40 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/27 15:22:53 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/27 16:49:35 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_utils.h"
 
-static void	ft_contents_x_1(int *a, int *b, t_push_swap_data *d)
+static void	ft_contents_4_1(int *a, int *b, t_push_swap_data *d)
 {
-	t_dllist	*al[3];
+	t_dllist	*al[4];
 	t_dllist	*bl[1];
 	size_t		i;
 
@@ -24,7 +24,7 @@ static void	ft_contents_x_1(int *a, int *b, t_push_swap_data *d)
 	a[0] = ((t_stack_el *)al[0]->content)->order;
 	i = 1;
 	ft_putnbr_fd(a[0], 1);
-	while (i < 3)
+	while (i < 4)
 	{
 		al[i] = al[i - 1]->next;
 		a[i] = ((t_stack_el *)al[i]->content)->order;
@@ -37,44 +37,35 @@ static void	ft_contents_x_1(int *a, int *b, t_push_swap_data *d)
 	ft_putstr_fd("\n", 1);
 }
 
-static void	ft_rax_pa_rray(t_push_swap_data *d, size_t x, int s5)
+static void	ft_into_y(t_push_swap_data *d, size_t in4, size_t y)
 {
-	if (x > 0)
-		psd_apply_cmd(d, ra);
-	psd_apply_cmd(d, pa);
-	if (! s5)
-		psd_apply_cmd_xn(d, rra, x);
+	int		a[4];
+	int		b[1];
+
+	ft_contents_4_1(a, b, d);
+	if (((in4 + y) % 4) > 2)
+		psd_apply_cmd_xn(d, rra, ((in4 + y) % 4) - 2);
 	else
-		ft_ins_into_4(d, x + 1);
+		psd_apply_cmd_xn(d, rr, 1 - ((in4 + y) % 4));
+	psd_apply_cmd(d, pa);
+	if (((in4 + y) % 4) > 2)
+		psd_apply_cmd_xn(d, rr, ((in4 + y) % 4) - 2);
+	else
+		psd_apply_cmd_xn(d, rra, 1 - ((in4 + y) % 4));
 }
 
-static void	ft_rrax_pa_ray(t_push_swap_data *d, size_t x, int s5)
+void	ft_ins_into_4(t_push_swap_data *d, size_t in4)
 {
-	if (x > 0)
-		psd_apply_cmd(d, rra);
-	psd_apply_cmd(d, pa);
-	if (! s5)
-		psd_apply_cmd_xn(d, ra, x);
-	else
-		ft_ins_into_4(d, (-x) % 4);
-}
+	int		a[4];
+	int		b[1];
 
-void	ft_sort_4_5_a(t_push_swap_data *d)
-{
-	int	a[3];
-	int	b[1];
-	int	s5;
-
-	s5 = (d->stack_a->size == 5);
-	psd_apply_cmd_xn(d, pb, d->stack_a->size - 3);
-	ft_sort_3_a(d);
-	ft_contents_x_1(a, b, d);
-	if (b[0] < a[0])
-		ft_rrax_pa_ray(d, 0, s5);
-	else if (b[0] < a[1])
-		ft_rax_pa_rray(d, 1, s5);
-	else if (b[0] < a[2])
-		ft_rrax_pa_ray(d, 0, s5);
+	ft_contents_4_1(a, b, d);
+	if (b[0] > a[(in4 + 3) % 4] || b[0] < a[in4])
+		ft_into_y(d, in4, 0);
+	else if (b[0] > a[in4] && b[0] < a[(in4 + 1) % 4])
+		ft_into_y(d, in4, 1);
+	else if (b[0] > a[(in4 + 1) % 4] && b[0] < a[(in4 + 2) % 4])
+		ft_into_y(d, in4, 2);
 	else
-		ft_rrax_pa_ray(d, 1, s5);
+		ft_into_y(d, in4, 3);
 }

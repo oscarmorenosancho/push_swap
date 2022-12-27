@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/27 11:25:01 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/27 16:41:54 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	ft_apply_cmds(t_push_swap_data *d)
 {
+	if (d->stack_a->size == 4 || d->stack_a->size == 5)
+		ft_sort_4_5_a(d);
 	if (d->stack_a->size == 3)
 		ft_sort_3_a(d);
 	if (d->stack_a->size == 2)
