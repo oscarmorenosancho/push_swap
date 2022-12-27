@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 11:31:31 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/27 17:15:40 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/27 18:26:24 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,24 @@ static void	ft_contents_x_1(int *a, int *b, t_push_swap_data *d)
 	ft_putstr_fd("\n", 1);
 }
 
-static void	ft_rax_pa_rray(t_push_swap_data *d, size_t x, int s5)
+static void	ft_rrx_pa(t_push_swap_data *d, size_t x, int s5)
 {
-	if (x > 0)
+	if (x == 1)
 		psd_apply_cmd(d, ra);
-	psd_apply_cmd(d, pa);
-	if (! s5)
-		psd_apply_cmd_xn(d, rra, x);
-	else
-		ft_ins_into_4(d, x + 1);
-}
-
-static void	ft_rrax_pa_ray(t_push_swap_data *d, size_t x, int s5)
-{
-	if (x > 0)
+	else if (x == 2)
 		psd_apply_cmd(d, rra);
 	psd_apply_cmd(d, pa);
 	if (! s5)
-		psd_apply_cmd_xn(d, ra, x);
+	{
+		if (x == 1)
+			psd_apply_cmd(d, rra);
+		else if (x == 2)
+			psd_apply_cmd_xn(d, ra, 2);
+		else if (x == 3)
+			psd_apply_cmd(d, ra);
+	}
 	else
-		ft_ins_into_4(d, (-x) % 4);
+		ft_ins_into_4(d, (x + 0) % 4);
 }
 
 void	ft_sort_4_5_a(t_push_swap_data *d)
@@ -70,11 +68,11 @@ void	ft_sort_4_5_a(t_push_swap_data *d)
 	ft_sort_3_a(d);
 	ft_contents_x_1(a, b, d);
 	if (b[0] < a[0])
-		ft_rrax_pa_ray(d, 0, s5);
+		ft_rrx_pa(d, 0, s5);
 	else if (b[0] < a[1])
-		ft_rax_pa_rray(d, 1, s5);
+		ft_rrx_pa(d, 1, s5);
 	else if (b[0] < a[2])
-		ft_rrax_pa_ray(d, 0, s5);
+		ft_rrx_pa(d, 2, s5);
 	else
-		ft_rrax_pa_ray(d, 1, s5);
+		ft_rrx_pa(d, 3, s5);
 }
