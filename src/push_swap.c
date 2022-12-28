@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/28 10:21:22 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/28 15:00:08 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void	ft_apply_cmds(t_push_swap_data *d)
 		ft_sort_3_a(d);
 	else if (d->stack_a->size == 4 || d->stack_a->size == 5)
 		ft_sort_4_5_a(d);
+	else
+		ft_sort_gt_5(d);
 }
 
 static void	ft_process_valid_data(t_push_swap_data *d)
@@ -28,6 +30,7 @@ static void	ft_process_valid_data(t_push_swap_data *d)
 					d->tab, d->sorted, d->size);
 	free_x((void **)&d->sorted);
 	free_x((void **)&d->tab);
+	ft_print_stacks(d, "--\n");
 	ft_apply_cmds(d);
 	ft_print_stacks(d, "--\n");
 	d->cmd_list = ft_lstreverse(&d->cmd_list);
