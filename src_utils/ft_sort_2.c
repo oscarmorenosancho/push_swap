@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 10:50:22 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/28 12:19:22 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/28 17:05:47 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,21 @@ void	ft_sort_2_b_a(t_push_swap_data *d)
 				}
 			}
 		}
+	}
+}
+
+void	ft_sort_2_anb(t_push_swap_data *d)
+{
+	int	fc_a;
+	int	sc_a;
+	int	fc_b;
+	int	sc_b;
+
+	if (d->stack_b->size > 1 && d->stack_a->size > 1)
+	{
+		ft_contents_2(&fc_b, &sc_b, d->stack_b);
+		ft_contents_2(&fc_a, &sc_a, d->stack_a);
+		if (fc_b < sc_b && fc_a > sc_a)
+			psd_apply_cmd(d, ss);
 	}
 }
