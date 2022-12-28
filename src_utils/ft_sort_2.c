@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 10:50:22 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/27 11:21:18 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/28 12:19:22 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ static void	ft_contents_2(int *fc, int *sc, t_ps_stack *stack)
 	scd = frst->next;
 	*fc = ((t_stack_el *)frst->content)->order;
 	*sc = ((t_stack_el *)scd->content)->order;
-	ft_putnbr_fd(*fc, 1);
-	ft_putstr_fd(", ", 1);
-	ft_putnbr_fd(*sc, 1);
-	ft_putstr_fd("\n", 1);
 }
 
 void	ft_sort_2_a_b(t_push_swap_data *d)

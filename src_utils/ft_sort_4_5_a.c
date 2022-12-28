@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 11:31:31 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/27 18:28:03 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/28 12:17:59 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,12 @@ static void	ft_contents_x_1(int *a, int *b, t_push_swap_data *d)
 	al[0] = d->stack_a->dll;
 	a[0] = ((t_stack_el *)al[0]->content)->order;
 	i = 1;
-	ft_putnbr_fd(a[0], 1);
 	while (i < 3)
 	{
 		al[i] = al[i - 1]->next;
 		a[i] = ((t_stack_el *)al[i]->content)->order;
-		ft_putstr_fd(", ", 1);
-		ft_putnbr_fd(a[i], 1);
 		i++;
 	}
-	ft_putstr_fd("\n", 1);
-	ft_putnbr_fd(b[0], 1);
-	ft_putstr_fd("\n", 1);
 }
 
 static void	ft_rrx_pa(t_push_swap_data *d, size_t x, int s5)
@@ -54,7 +48,7 @@ static void	ft_rrx_pa(t_push_swap_data *d, size_t x, int s5)
 			psd_apply_cmd(d, ra);
 	}
 	else
-		ft_ins_into_4(d, (x + 0) % 4);
+		ft_ins_into_4(d, (4 - (int)x) % 4);
 }
 
 void	ft_sort_4_5_a(t_push_swap_data *d)
