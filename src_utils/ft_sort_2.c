@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 10:50:22 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/28 17:05:47 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:44:21 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	ft_sort_2_a_b(t_push_swap_data *d)
 		ft_contents_2(&fc_a, &sc_a, d->stack_a);
 		if (fc_a > sc_a)
 		{
-			psd_apply_cmd(d, sa);
+			psd_apply_cmd(d, sa, 0);
 			if (d->stack_b->size > 1)
 			{
 				ft_contents_2(&fc_b, &sc_b, d->stack_b);
 				if (fc_b < sc_b)
 				{
-					psd_apply_cmd(d, sb);
+					psd_apply_cmd(d, sb, 0);
 				}
 			}
 		}
@@ -60,13 +60,13 @@ void	ft_sort_2_b_a(t_push_swap_data *d)
 		ft_contents_2(&fc_b, &sc_b, d->stack_b);
 		if (fc_b < sc_b)
 		{
-			psd_apply_cmd(d, sb);
+			psd_apply_cmd(d, sb, 0);
 			if (d->stack_a->size > 1)
 			{
 				ft_contents_2(&fc_a, &sc_a, d->stack_a);
 				if (fc_a > sc_a)
 				{
-					psd_apply_cmd(d, sa);
+					psd_apply_cmd(d, sa, 0);
 				}
 			}
 		}
@@ -85,6 +85,6 @@ void	ft_sort_2_anb(t_push_swap_data *d)
 		ft_contents_2(&fc_b, &sc_b, d->stack_b);
 		ft_contents_2(&fc_a, &sc_a, d->stack_a);
 		if (fc_b < sc_b && fc_a > sc_a)
-			psd_apply_cmd(d, ss);
+			psd_apply_cmd(d, ss, 0);
 	}
 }

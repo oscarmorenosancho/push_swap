@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:56:11 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/28 12:18:34 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:44:46 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	ft_sort_3_a(t_push_swap_data *d)
 
 	ft_contents_3(&fc, &sc, &tc, d->stack_a);
 	if (fc > sc && fc > tc)
-		psd_apply_cmd(d, ra);
+		psd_apply_cmd(d, ra, 1);
 	else if (sc > fc && sc > tc)
-		psd_apply_cmd(d, rra);
+		psd_apply_cmd(d, rra, 1);
 	ft_sort_2_a_b(d);
 }

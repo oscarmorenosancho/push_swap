@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 12:49:31 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/23 13:07:17 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:43:43 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_read_n_play_cmd_list_fd(t_push_swap_data	*psd, int fd)
 		sc = ft_getstackcmd(line);
 		free (line);
 		if (sc != nop)
-			psd_apply_cmd(psd, sc);
+			psd_apply_cmd(psd, sc, 0);
 		line = get_next_line(fd);
 	}
 }

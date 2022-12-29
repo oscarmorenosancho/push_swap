@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:34:44 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/23 12:43:43 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/29 20:54:08 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,28 @@ static void	psd_exe_cmd(t_push_swap_data *psd, t_stack_cmd sc)
 		psd_exe_c_cmd(psd, sc);
 }
 
-int	psd_apply_cmd(t_push_swap_data *psd, t_stack_cmd sc)
+int	psd_apply_cmd(t_push_swap_data *psd, t_stack_cmd sc, int dis_dbl)
 {
-	t_list		*ln;
+	t_list			*ln;
+	t_stack_cmd		sca;
 
 	if (! psd)
 		return (0);
 	ln = ft_calloc(1, sizeof(t_list));
 	if (! ln)
 		return (0);
-	ln->content = (void *)sc;
+	sca = sc;
+	if (fr_is_convinient_cmd_in_both(psd, sc) && !dis_dbl)
+	{
+		if (sc == ra || sc == rb)
+			sca = rr;
+		else if (sc == rra || sc == rrb)
+			sca = rrr;
+		else if (sc == sa || sc == sb)
+			sca = ss;
+	}		
+	ln->content = (void *)sca;
 	ft_lstadd_front(&psd->cmd_list, ln);
-	psd_exe_cmd(psd, sc);
+	psd_exe_cmd(psd, sca);
 	return (1);
 }

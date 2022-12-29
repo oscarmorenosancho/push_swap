@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 13:43:07 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/28 17:52:56 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/29 22:06:39 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,18 @@
 static void	ft_apply_c1xn_n_c2(t_push_swap_data *d, t_stack_cmd sc1, \
 				size_t n, t_stack_cmd sc2)
 {
-	psd_apply_cmd_xn(d, sc1, n);
-	psd_apply_cmd(d, sc2);
+	psd_apply_cmd_xn(d, sc1, n, 0);
+	psd_apply_cmd(d, sc2, 0);
 }
 
-void	ft_move_chunck_to_b(t_push_swap_data *d, int *range)
+static void	ft_apply_c1xn_n_c2_dd(t_push_swap_data *d, t_stack_cmd sc1, \
+				size_t n, t_stack_cmd sc2)
+{
+	psd_apply_cmd_xn(d, sc1, n, 1);
+	psd_apply_cmd(d, sc2, 1);
+}
+
+void	ft_move_chunck_to_b(t_push_swap_data *d, int *range, int dis_dbl)
 {
 	t_dllist	*fst;
 	int			loc;
@@ -32,24 +39,34 @@ void	ft_move_chunck_to_b(t_push_swap_data *d, int *range)
 	i = 0;
 	while (i < chunck_size)
 	{
-		ft_sort_2_anb(d);
+		//ft_sort_2_anb(d);
 		loc = half_stack_size;
 		fst = ft_dllstfindfirstinrange(&loc, d->stack_a->dll, range);
 		if (loc != -1 && loc < half_stack_size)
-			ft_apply_c1xn_n_c2(d, ra, loc, pb);
+		{
+			if (dis_dbl)
+				ft_apply_c1xn_n_c2_dd(d, ra, loc, pb);
+			else
+				ft_apply_c1xn_n_c2(d, ra, loc, pb);
+		}
 		else
 		{
 			loc = half_stack_size;
 			fst = ft_dllstfindfirstinrangerev(&loc, d->stack_a->dll, range);
 			if (loc != -1)
-				ft_apply_c1xn_n_c2(d, rra, loc, pb);
+			{
+				if (dis_dbl)
+					ft_apply_c1xn_n_c2_dd(d, rra, loc, pb);
+				else
+					ft_apply_c1xn_n_c2(d, rra, loc, pb);
+			}
 		}
 		i++;
 	}
 	//ft_print_stacks(d, "--\n");
 }
 
-void	ft_move_chunck_to_a(t_push_swap_data *d, int *range)
+void	ft_move_chunck_to_a(t_push_swap_data *d, int *range, int dis_dbl)
 {
 	t_dllist	*fst;
 	int			loc;
@@ -62,17 +79,27 @@ void	ft_move_chunck_to_a(t_push_swap_data *d, int *range)
 	i = 0;
 	while (i < chunck_size)
 	{
-		ft_sort_2_anb(d);
+		//ft_sort_2_anb(d);
 		loc = half_stack_size;
 		fst = ft_dllstfindfirstinrange(&loc, d->stack_b->dll, range);
 		if (loc != -1 && loc < half_stack_size)
-			ft_apply_c1xn_n_c2(d, rb, loc, pa);
+		{
+			if (dis_dbl)
+				ft_apply_c1xn_n_c2_dd(d, rb, loc, pa);
+			else
+				ft_apply_c1xn_n_c2(d, rb, loc, pa);
+		}
 		else
 		{
 			loc = half_stack_size;
 			fst = ft_dllstfindfirstinrangerev(&loc, d->stack_b->dll, range);
 			if (loc != -1)
-				ft_apply_c1xn_n_c2(d, rrb, loc, pa);
+			{
+				if (dis_dbl)
+					ft_apply_c1xn_n_c2_dd(d, rrb, loc, pa);
+				else
+					ft_apply_c1xn_n_c2(d, rrb, loc, pa);
+			}
 		}
 		i++;
 	}
@@ -89,7 +116,57 @@ static void	ft_print_range(int *range)
 	ft_putstr_fd("]\n", 1);
 }
 
-void	ft_move_chuncks_to_b(t_push_swap_data *d, size_t chunk_size)
+void	ft_move_chuncks_to_b(t_push_swap_data *d, size_t scale, int dis_dbl)
+{
+	int	range[2];
+	int	size;
+	int	chunk_size;
+
+	size = d->stack_a->size;
+	chunk_size = (size / 2) / scale;
+	range[0] = 0;
+	range[1] = size >> 1;
+	while (range[1] < size)
+	{
+		/*ft_putstr_fd("ft_move_chuncks_to_a chunk_id = ", 1);
+		ft_putnbr_fd(chunk_id, 1);
+		ft_putstr_fd("\n", 1);*/
+		ft_print_range(range);
+		ft_move_chunck_to_b(d, range, dis_dbl);
+		range[0] = range[1] + 1;
+		chunk_size >>= 1;
+		if (chunk_size < 1)
+			chunk_size = 1;
+		range[1] = range[0] + chunk_size;
+	}
+}
+
+void	ft_move_chuncks_to_a(t_push_swap_data *d, size_t scale, int dis_dbl)
+{
+	int	range[2];
+	int	size;
+	int	chunk_size;
+
+	size = d->stack_b->size;
+	chunk_size = (size / 2) / scale;
+	range[0] = size >> 1;
+	range[1] = size - 1;
+	while (range[0] >= 0)
+	{
+		/*ft_putstr_fd("ft_move_chuncks_to_a chunk_id = ", 1);
+		ft_putnbr_fd(chunk_id, 1);
+		ft_putstr_fd("\n", 1);*/
+		ft_print_range(range);
+		ft_move_chunck_to_a(d, range, dis_dbl);
+		range[1] = range[0] - 1;
+		chunk_size >>= 1;
+		if (chunk_size < 1)
+			chunk_size = 1;
+		range[0] = range[1] - chunk_size;
+	}
+}
+
+void	ft_move_eq_chuncks_to_b(t_push_swap_data *d, size_t chunk_size, int dis_dbl)
 {
 	int	range[2];
 	int	size;
@@ -109,12 +186,12 @@ void	ft_move_chuncks_to_b(t_push_swap_data *d, size_t chunk_size)
 		if ((chunk_count - chunk_id) <= 1)
 			range[1] = size - 1;
 		ft_print_range(range);
-		ft_move_chunck_to_b(d, range);
+		ft_move_chunck_to_b(d, range, dis_dbl);
 		chunk_id++;
 	}
 }
 
-void	ft_move_chuncks_to_a(t_push_swap_data *d, size_t chunk_size)
+void	ft_move_eq_chuncks_to_a(t_push_swap_data *d, size_t chunk_size, int dis_dbl)
 {
 	int	range[2];
 	int	size;
@@ -134,7 +211,7 @@ void	ft_move_chuncks_to_a(t_push_swap_data *d, size_t chunk_size)
 		if ((chunk_count - chunk_id) <= 1)
 			range[1] = size - 1;
 		ft_print_range(range);
-		ft_move_chunck_to_a(d, range);
+		ft_move_chunck_to_a(d, range, dis_dbl);
 		chunk_id--;
 	}
 }
@@ -142,20 +219,22 @@ void	ft_move_chuncks_to_a(t_push_swap_data *d, size_t chunk_size)
 void	ft_sort_gt_5(t_push_swap_data *d)
 {
 	int	size;
+	int	scale;
 	int	chunk_size;
 
 	size = d->stack_a->size;
-	chunk_size = size / 2;
-	while (chunk_size > 16)
+	chunk_size = size / 16;
+	scale = 1;
+	ft_move_chuncks_to_b(d, scale, 0);
+	scale <<= 1;
+	if (d->stack_a->size > 0)
+		psd_apply_cmd_xn(d, pb, d->stack_a->size, 1);
+	while (chunk_size > 10)
 	{
-		ft_move_chuncks_to_b(d, chunk_size);
+		ft_move_eq_chuncks_to_a(d, chunk_size, chunk_size < 16);
 		chunk_size /= 2;
-		ft_move_chuncks_to_a(d, chunk_size);
+		ft_move_eq_chuncks_to_b(d, chunk_size, chunk_size < 10);
 		chunk_size /= 2;
 	}
-	if (chunk_size < 4)
-		ft_move_chuncks_to_b(d, 4);
-	else
-		ft_move_chuncks_to_b(d, chunk_size);
-	ft_move_chuncks_to_a(d, 1);
+	ft_move_eq_chuncks_to_a(d, 1, 1);
 }

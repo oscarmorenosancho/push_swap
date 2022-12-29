@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 11:31:31 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/28 12:17:59 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:40:46 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ static void	ft_contents_x_1(int *a, int *b, t_push_swap_data *d)
 static void	ft_rrx_pa(t_push_swap_data *d, size_t x, int s5)
 {
 	if (x == 1)
-		psd_apply_cmd(d, ra);
+		psd_apply_cmd(d, ra, 1);
 	else if (x == 2)
-		psd_apply_cmd(d, rra);
-	psd_apply_cmd(d, pa);
+		psd_apply_cmd(d, rra, 1);
+	psd_apply_cmd(d, pa, 1);
 	if (! s5)
 	{
 		if (x == 1)
-			psd_apply_cmd(d, rra);
+			psd_apply_cmd(d, rra, 1);
 		else if (x == 2)
-			psd_apply_cmd_xn(d, ra, 2);
+			psd_apply_cmd_xn(d, ra, 2, 1);
 		else if (x == 3)
-			psd_apply_cmd(d, ra);
+			psd_apply_cmd(d, ra, 1);
 	}
 	else
 		ft_ins_into_4(d, (4 - (int)x) % 4);
@@ -58,7 +58,7 @@ void	ft_sort_4_5_a(t_push_swap_data *d)
 	int	s5;
 
 	s5 = (d->stack_a->size == 5);
-	psd_apply_cmd_xn(d, pb, d->stack_a->size - 3);
+	psd_apply_cmd_xn(d, pb, d->stack_a->size - 3, 1);
 	ft_sort_3_a(d);
 	ft_contents_x_1(a, b, d);
 	if (b[0] < a[0])

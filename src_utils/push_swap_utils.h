@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/28 16:56:47 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:33:12 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,10 @@ t_ps_stack			*ft_fill_stack_with_tab(t_ps_stack	*dst, int *tab, \
 						int *sorted, size_t size);
 t_push_swap_data	*psd_constructor(void);
 void				psd_dispose(t_push_swap_data **psd);
-int					psd_apply_cmd(t_push_swap_data *psd, t_stack_cmd sc);
+int					psd_apply_cmd(t_push_swap_data *psd, t_stack_cmd sc, \
+						int dis_dbl);
 int					psd_apply_cmd_xn(t_push_swap_data *psd, t_stack_cmd sc, \
-						size_t n);
+						size_t n, int dis_dbl);
 void				ft_read_n_play_cmd_list_fd(t_push_swap_data	*psd, int fd);
 void				ft_sort_2_a_b(t_push_swap_data *d);
 void				ft_sort_2_b_a(t_push_swap_data *d);
@@ -96,5 +97,10 @@ void				ft_sort_3_a(t_push_swap_data *d);
 void				ft_ins_into_4(t_push_swap_data *d, size_t in4);
 void				ft_sort_4_5_a(t_push_swap_data *d);
 void				ft_sort_gt_5(t_push_swap_data *d);
+int					fr_is_convinient_cmd_in_both(t_push_swap_data *psd, \
+						t_stack_cmd sc);
+int					ft_pow_2(int n);
+int					ft_sum_pow_2(int n);
+int					ft_get_sum_pow_lt(int n);
 
 #endif

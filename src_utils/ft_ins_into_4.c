@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:22:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/28 12:23:16 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:45:05 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ static void	ft_into_y(t_push_swap_data *d, size_t in4, size_t y)
 	ft_contents_4_1(a, b, d);
 	in4_y = (in4 + y) % 4;
 	if (in4_y < 2)
-		psd_apply_cmd_xn(d, ra, in4_y);
+		psd_apply_cmd_xn(d, ra, in4_y, 1);
 	else
-		psd_apply_cmd_xn(d, rra, 4 - in4_y);
-	psd_apply_cmd(d, pa);
+		psd_apply_cmd_xn(d, rra, 4 - in4_y, 1);
+	psd_apply_cmd(d, pa, 1);
 	if (y < 3)
-		psd_apply_cmd_xn(d, rra, y);
+		psd_apply_cmd_xn(d, rra, y, 1);
 	else
-		psd_apply_cmd_xn(d, ra, 5 - y);
+		psd_apply_cmd_xn(d, ra, 5 - y, 1);
 }
 
 void	ft_ins_into_4(t_push_swap_data *d, size_t in4)

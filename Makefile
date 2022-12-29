@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/28 14:29:53 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/29 12:51:05 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,9 @@ SRCU_R:= ft_check_duplicated.c\
 	ft_sort_3_a.c\
 	ft_sort_4_5_a.c\
 	ft_ins_into_4.c\
-	fr_sort_gt_5.c
+	fr_sort_gt_5.c\
+	fr_is_convinient_cmd_in_both.c\
+	ft_sum_pow2.c
 
 SRC_PATH := src/
 SRCB_PATH := src_bonus/
