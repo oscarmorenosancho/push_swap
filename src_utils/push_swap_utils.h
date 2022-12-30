@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/29 17:33:12 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/30 11:42:46 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,23 @@ int					psd_apply_cmd(t_push_swap_data *psd, t_stack_cmd sc, \
 						int dis_dbl);
 int					psd_apply_cmd_xn(t_push_swap_data *psd, t_stack_cmd sc, \
 						size_t n, int dis_dbl);
+void				ft_apply_c1xn_n_c2(t_push_swap_data *d, t_stack_cmd sc1, \
+						size_t n, t_stack_cmd sc2);
+void				ft_apply_c1xn_n_c2_dd(t_push_swap_data *d, t_stack_cmd sc1, \
+						size_t n, t_stack_cmd sc2);
 void				ft_read_n_play_cmd_list_fd(t_push_swap_data	*psd, int fd);
+void				ft_move_chunck_to_b(t_push_swap_data *d, \
+						int *range, int dis_dbl);
+void				ft_move_chunck_to_a(t_push_swap_data *d, \
+						int *range, int dis_dbl);
+void				ft_move_chuncks_to_b(t_push_swap_data *d, \
+						size_t scale, int dis_dbl);
+void				ft_move_eq_chuncks_to_b(t_push_swap_data *d, \
+						size_t chunk_size, int dis_dbl);
+void				ft_move_eq_chuncks_to_a(t_push_swap_data *d, \
+						size_t chunk_size, int dis_dbl);
+void				ft_move_chuncks_to_a(t_push_swap_data *d, \
+						size_t scale, int dis_dbl);
 void				ft_sort_2_a_b(t_push_swap_data *d);
 void				ft_sort_2_b_a(t_push_swap_data *d);
 void				ft_sort_2_anb(t_push_swap_data *d);
