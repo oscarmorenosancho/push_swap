@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/30 11:42:46 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/30 15:57:52 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,23 @@ typedef enum e_stack_cmd
 	rrr
 }	t_stack_cmd;
 
+typedef enum e_sort_dir
+{
+	sd_desc,
+	sd_asc
+}	t_sort_dir;
+
 typedef struct s_stack_el
 {
 	int	nbr;
 	int	order;
 }	t_stack_el;
+
+typedef struct s_ips_opt
+{
+	t_sort_dir	sort_dir;
+	int			order;
+}	t_ips_opt;
 
 typedef struct s_ps_stack
 {
@@ -62,6 +74,10 @@ t_dllist			*ft_dllstfindfirstinrange(int *loc, \
 						t_dllist *lst, int *range);
 t_dllist			*ft_dllstfindfirstinrangerev(int *loc, \
 						t_dllist *lst, int *range);
+t_dllist			*ft_dllstfindfirstinsertloc(int *loc, t_dllist *lst, \
+						t_ips_opt *ips_opt);
+t_dllist			*ft_dllstfindfirstinsertlocrev(int *loc, t_dllist *lst, \
+						t_ips_opt *ips_opt);
 int					ft_stack_head_order_n_bit(t_dllist *dll, int n);
 void				ft_putstackcmd_fd(t_stack_cmd sc, int fd);
 void				ft_putstackcmdlst_fd(t_list *scl, int fd);

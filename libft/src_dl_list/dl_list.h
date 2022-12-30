@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 12:24:24 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 15:18:18 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/30 15:29:18 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,9 @@ t_dllist	*ft_dllstfindfirst(int *loc, t_dllist *lst, \
 			int (*f)(unsigned int, void *, void *), void *arg);
 t_dllist	*ft_dllstfindfirstrev(int *loc, t_dllist *lst, \
 			int (*f)(unsigned int, void *, void *), void *arg);
+t_dllist	*ft_dllstfindfirstnode(int *loc, t_dllist *lst, \
+			int (*f)(unsigned int, t_dllist *, void *), void *arg);
+t_dllist	*ft_dllstfindfirstnoderev(int *loc, t_dllist *lst, \
+			int (*f)(unsigned int, t_dllist *, void *), void *arg);
 
 #endif

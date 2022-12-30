@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/30 11:41:17 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/30 14:16:44 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCU_R:= ft_check_duplicated.c\
 	ft_log_error_exit.c\
 	ft_new_stack_el.c\
 	ft_dllstfindfirstinrange.c\
+	ft_dllstfindfirstinsertloc.c\
 	ft_stack_head_order_n_bit.c\
 	ft_putstackcmd_fd.c\
 	ft_check_stack_ordered.c\
