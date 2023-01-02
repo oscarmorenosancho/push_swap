@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/30 15:57:52 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/02 14:03:22 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,15 @@ typedef struct s_ps_stack
 	t_dllist	*dll;
 	size_t		size;
 }	t_ps_stack;
+
+typedef struct s_move_desc
+{
+	int		s_loc;
+	int		s_d_r;
+	int		d_loc;
+	int		d_d_r;
+	int		a_b;
+}	t_move_desc;
 
 typedef struct s_push_swap_data
 {
@@ -110,6 +119,8 @@ void				ft_apply_c1xn_n_c2(t_push_swap_data *d, t_stack_cmd sc1, \
 void				ft_apply_c1xn_n_c2_dd(t_push_swap_data *d, t_stack_cmd sc1, \
 						size_t n, t_stack_cmd sc2);
 void				ft_read_n_play_cmd_list_fd(t_push_swap_data	*psd, int fd);
+void				ft_find_best_move(t_move_desc *mv_desc, \
+						t_push_swap_data *d, int *range, int a_b);
 void				ft_move_chunck_to_b(t_push_swap_data *d, \
 						int *range, int dis_dbl);
 void				ft_move_chunck_to_a(t_push_swap_data *d, \
