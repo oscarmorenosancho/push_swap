@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/02 14:03:22 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/03 15:56:25 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_move_desc
 	int		d_loc;
 	int		d_d_r;
 	int		a_b;
+	int		max;
 }	t_move_desc;
 
 typedef struct s_push_swap_data
@@ -105,7 +106,7 @@ void				pss_revrotate(t_ps_stack *pss);
 void				ft_print_tab(int *tab, size_t size);
 void				ft_print_el(void *content);
 void				ft_print_stack(t_ps_stack *stack, char name, char *sep);
-void				ft_print_stacks(t_push_swap_data *d, char *sep);
+void				ft_print_stacks(t_push_swap_data *d, char *sep, int fd);
 t_ps_stack			*ft_fill_stack_with_tab(t_ps_stack	*dst, int *tab, \
 						int *sorted, size_t size);
 t_push_swap_data	*psd_constructor(void);
@@ -118,7 +119,12 @@ void				ft_apply_c1xn_n_c2(t_push_swap_data *d, t_stack_cmd sc1, \
 						size_t n, t_stack_cmd sc2);
 void				ft_apply_c1xn_n_c2_dd(t_push_swap_data *d, t_stack_cmd sc1, \
 						size_t n, t_stack_cmd sc2);
+void				psd_apply_move(t_push_swap_data *d, t_move_desc *mv_desc);
 void				ft_read_n_play_cmd_list_fd(t_push_swap_data	*psd, int fd);
+void				ft_find_best_move_d(t_move_desc *mv_desc, \
+						t_push_swap_data *d, int *range);
+void				ft_find_best_move_r(t_move_desc *mv_desc, \
+						t_push_swap_data *d, int *range);
 void				ft_find_best_move(t_move_desc *mv_desc, \
 						t_push_swap_data *d, int *range, int a_b);
 void				ft_move_chunck_to_b(t_push_swap_data *d, \

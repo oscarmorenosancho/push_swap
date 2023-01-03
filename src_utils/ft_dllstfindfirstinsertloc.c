@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 14:17:24 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/02 13:35:07 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/03 15:48:12 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,17 @@ static int	ft_is_insert_pos(unsigned int i, t_dllist *node, void *arg)
 t_dllist	*ft_dllstfindfirstinsertloc(int *loc, t_dllist *lst, \
 				t_ips_opt *ips_opt)
 {
-	return (ft_dllstfindfirstnode(loc, lst, &ft_is_insert_pos, ips_opt));
+	t_dllist	*ret;
+
+	ret = ft_dllstfindfirstnode(loc, lst, &ft_is_insert_pos, ips_opt);
+	return (ret);
 }
 
 t_dllist	*ft_dllstfindfirstinsertlocrev(int *loc, t_dllist *lst, \
 				t_ips_opt *ips_opt)
 {
-	return (ft_dllstfindfirstnoderev(loc, lst, &ft_is_insert_pos, ips_opt));
+	t_dllist	*ret;
+
+	ret = ft_dllstfindfirstnoderev(loc, lst, &ft_is_insert_pos, ips_opt);
+	return (ret);
 }

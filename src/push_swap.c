@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/28 17:22:57 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/03 18:29:38 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ static void	ft_process_valid_data(t_push_swap_data *d)
 					d->tab, d->sorted, d->size);
 	free_x((void **)&d->sorted);
 	free_x((void **)&d->tab);
-	//ft_print_stacks(d, "--\n");
 	ft_apply_cmds(d);
-	//ft_print_stacks(d, "--\n");
 	d->cmd_list = ft_lstreverse(&d->cmd_list);
 	ft_putstackcmdlst_fd(d->cmd_list, 1);
 }

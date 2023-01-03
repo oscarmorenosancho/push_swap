@@ -6,13 +6,13 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:16:28 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/30 13:07:13 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/03 18:00:10 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_utils.h"
 
-static void	ft_find_closest_a_mv_b(t_push_swap_data *d, int *range, \
+void	ft_find_closest_a_mv_b(t_push_swap_data *d, int *range, \
 					int dis_dbl, int half_stack_size)
 {
 	t_dllist	*fst_d;
@@ -40,7 +40,7 @@ static void	ft_find_closest_a_mv_b(t_push_swap_data *d, int *range, \
 	}
 }
 
-static void	ft_find_closest_b_mv_a(t_push_swap_data *d, int *range, \
+void	ft_find_closest_b_mv_a(t_push_swap_data *d, int *range, \
 					int dis_dbl, int half_stack_size)
 {
 	t_dllist	*fst_d;
@@ -73,13 +73,16 @@ void	ft_move_chunck_to_b(t_push_swap_data *d, int *range, int dis_dbl)
 	int			i;
 	int			chunck_size;
 	int			half_stack_size;
+	t_move_desc	mv_desc;
 
+	(void)dis_dbl;
 	chunck_size = range[1] - range[0] + 1;
 	half_stack_size = (d->stack_a->size + 1) / 2;
 	i = 0;
 	while (i < chunck_size)
 	{
-		ft_find_closest_a_mv_b(d, range, dis_dbl, half_stack_size);
+		ft_find_best_move(&mv_desc, d, range, 1);
+		psd_apply_move(d, &mv_desc);
 		i++;
 	}
 }
@@ -89,13 +92,16 @@ void	ft_move_chunck_to_a(t_push_swap_data *d, int *range, int dis_dbl)
 	int			i;
 	int			chunck_size;
 	int			half_stack_size;
+	t_move_desc	mv_desc;
 
+	(void)dis_dbl;
 	chunck_size = range[1] - range[0] + 1;
 	half_stack_size = (d->stack_b->size + 1) / 2;
 	i = 0;
 	while (i < chunck_size)
 	{
-		ft_find_closest_b_mv_a(d, range, dis_dbl, half_stack_size);
+		ft_find_best_move(&mv_desc, d, range, 0);
+		psd_apply_move(d, &mv_desc);
 		i++;
 	}
 }
