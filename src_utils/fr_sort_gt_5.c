@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 13:43:07 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/03 18:23:39 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/05 13:14:43 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	ft_sort_gt_5(t_push_swap_data *d)
 	int	chunk_size;
 
 	size = d->stack_a->size;
-	chunk_size = size / 11;
+	if (size < 11)
+		chunk_size = 1;
+	else
+		chunk_size = size / 11;
 	scale = 1;
 	ft_move_eq_chuncks_to_b(d, chunk_size, 1);
 	scale <<= 1;

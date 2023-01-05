@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2023/01/02 12:56:06 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/01/05 10:23:41 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,8 @@ SRCDLL := ft_dllstnew.c\
 	ft_dllstfindfirst.c\
 	ft_dllstfindfirstrev.c\
 	ft_dllstfindfirstnode.c\
-	ft_dllstfindfirstnoderev.c
+	ft_dllstfindfirstnoderev.c\
+	ft_dllst_reduce.c
 
 LIBFT_PATH := libft/
 SRC_PATH := src/

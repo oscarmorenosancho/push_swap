@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/03 15:56:25 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/05 12:07:09 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,18 @@ typedef struct s_move_desc
 	int		max;
 }	t_move_desc;
 
+typedef struct s_sort_anal
+{
+	t_sort_dir	sd;
+	int			size;
+	int			is_sorted;
+	int			runs;
+	int			min;
+	int			max;
+	int			min_loc;
+	int			max_loc;
+}	t_sort_anal;
+
 typedef struct s_push_swap_data
 {
 	int			*tab;
@@ -88,6 +100,7 @@ t_dllist			*ft_dllstfindfirstinsertloc(int *loc, t_dllist *lst, \
 						t_ips_opt *ips_opt);
 t_dllist			*ft_dllstfindfirstinsertlocrev(int *loc, t_dllist *lst, \
 						t_ips_opt *ips_opt);
+t_sort_anal			*ft_sort_anal(t_sort_dir sd, t_dllist *dll, int size);
 int					ft_stack_head_order_n_bit(t_dllist *dll, int n);
 void				ft_putstackcmd_fd(t_stack_cmd sc, int fd);
 void				ft_putstackcmdlst_fd(t_list *scl, int fd);
