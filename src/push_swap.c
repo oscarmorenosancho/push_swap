@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/05 13:52:10 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/05 14:06:19 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	ft_to_do_when_sorted(t_push_swap_data *d, t_sort_anal *s_anal)
 		if (min_loc < (int)(d->stack_a->size / 2))
 			psd_apply_cmd_xn(d, rr, min_loc, 1);
 		else
-			psd_apply_cmd_xn(d, rrr, d->stack_a->size- min_loc, 1);
+			psd_apply_cmd_xn(d, rrr, d->stack_a->size - min_loc, 1);
 	}
 	return (ret);
 }

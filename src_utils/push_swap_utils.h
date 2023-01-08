@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/05 12:07:09 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/08 12:53:20 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,13 @@ typedef struct s_push_swap_data
 	t_list		*cmd_list;
 }	t_push_swap_data;
 
+typedef struct s_expel_data
+{
+	int	start_sz;
+	int	pivot;
+	int	min_pivot;
+}	t_expel_data;
+
 int					ft_check_duplicated(int *tab, size_t size);
 int					ft_check_n_get_argument(const char *s, int *nbr);
 int					*ft_take_arguments(t_push_swap_data **p, \
@@ -140,18 +147,15 @@ void				ft_find_best_move_r(t_move_desc *mv_desc, \
 						t_push_swap_data *d, int *range);
 void				ft_find_best_move(t_move_desc *mv_desc, \
 						t_push_swap_data *d, int *range, int a_b);
-void				ft_move_chunck_to_b(t_push_swap_data *d, \
-						int *range, int dis_dbl);
-void				ft_move_chunck_to_a(t_push_swap_data *d, \
-						int *range, int dis_dbl);
+void				ft_move_chunck_to_b(t_push_swap_data *d, int *range);
+void				ft_move_chunck_to_a(t_push_swap_data *d, int *range);
 void				ft_move_chuncks_to_b(t_push_swap_data *d, \
-						size_t scale, int dis_dbl);
+						size_t scale);
 void				ft_move_eq_chuncks_to_b(t_push_swap_data *d, \
-						size_t chunk_size, int dis_dbl);
+						size_t chunk_size);
 void				ft_move_eq_chuncks_to_a(t_push_swap_data *d, \
-						size_t chunk_size, int dis_dbl);
-void				ft_move_chuncks_to_a(t_push_swap_data *d, \
-						size_t scale, int dis_dbl);
+						size_t chunk_size);
+void				ft_move_chuncks_to_a(t_push_swap_data *d, size_t scale);
 void				ft_sort_2_a_b(t_push_swap_data *d);
 void				ft_sort_2_b_a(t_push_swap_data *d);
 void				ft_sort_2_anb(t_push_swap_data *d);

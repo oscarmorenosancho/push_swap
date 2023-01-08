@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 13:43:07 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/05 13:14:43 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/08 12:53:35 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_sort_gt_5(t_push_swap_data *d)
 	else
 		chunk_size = size / 11;
 	scale = 1;
-	ft_move_eq_chuncks_to_b(d, chunk_size, 1);
+	ft_move_eq_chuncks_to_b(d, chunk_size);
 	scale <<= 1;
 	/*if (d->stack_a->size > 0)
 		psd_apply_cmd_xn(d, pb, d->stack_a->size, 1);
@@ -35,5 +35,5 @@ void	ft_sort_gt_5(t_push_swap_data *d)
 		ft_move_eq_chuncks_to_b(d, chunk_size, chunk_size < 10);
 		chunk_size /= 2;
 	}*/
-	ft_move_eq_chuncks_to_a(d, 1, 1);
+	ft_move_eq_chuncks_to_a(d, 1);
 }
