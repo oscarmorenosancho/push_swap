@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:30:00 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/08 12:51:01 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:54:06 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static void	ft_print_range(int *range)
 	ft_putstr_fd("]\n", 1);
 }
 
-void	ft_move_chuncks_to_b(t_push_swap_data *d, size_t scale)
+void	ft_move_chuncks_to_b(t_push_swap_data *d, size_t scale, \
+		int not_dest)
 {
 	int	range[2];
 	int	size;
@@ -35,7 +36,7 @@ void	ft_move_chuncks_to_b(t_push_swap_data *d, size_t scale)
 	while (range[1] < size)
 	{
 		ft_print_range(range);
-		ft_move_chunck_to_b(d, range);
+		ft_move_chunck_to_b(d, range, not_dest);
 		range[0] = range[1] + 1;
 		chunk_size >>= 1;
 		if (chunk_size < 1)
@@ -44,7 +45,8 @@ void	ft_move_chuncks_to_b(t_push_swap_data *d, size_t scale)
 	}
 }
 
-void	ft_move_chuncks_to_a(t_push_swap_data *d, size_t scale)
+void	ft_move_chuncks_to_a(t_push_swap_data *d, size_t scale, \
+		int not_dest)
 {
 	int	range[2];
 	int	size;
@@ -57,7 +59,7 @@ void	ft_move_chuncks_to_a(t_push_swap_data *d, size_t scale)
 	while (range[0] >= 0)
 	{
 		ft_print_range(range);
-		ft_move_chunck_to_a(d, range);
+		ft_move_chunck_to_a(d, range, not_dest);
 		range[1] = range[0] - 1;
 		chunk_size >>= 1;
 		if (chunk_size < 1)
@@ -66,7 +68,8 @@ void	ft_move_chuncks_to_a(t_push_swap_data *d, size_t scale)
 	}
 }
 
-void	ft_move_eq_chuncks_to_b(t_push_swap_data *d, size_t chunk_size)
+void	ft_move_eq_chuncks_to_b(t_push_swap_data *d, size_t chunk_size, \
+			int not_dest)
 {
 	int	range[2];
 	int	size;
@@ -83,12 +86,13 @@ void	ft_move_eq_chuncks_to_b(t_push_swap_data *d, size_t chunk_size)
 		if ((chunk_count - chunk_id) <= 1)
 			range[1] = size - 1;
 		ft_print_range(range);
-		ft_move_chunck_to_b(d, range);
+		ft_move_chunck_to_b(d, range, not_dest);
 		chunk_id++;
 	}
 }
 
-void	ft_move_eq_chuncks_to_a(t_push_swap_data *d, size_t chunk_size)
+void	ft_move_eq_chuncks_to_a(t_push_swap_data *d, size_t chunk_size, \
+			int not_dest)
 {
 	int	range[2];
 	int	size;
@@ -105,7 +109,7 @@ void	ft_move_eq_chuncks_to_a(t_push_swap_data *d, size_t chunk_size)
 		if ((chunk_count - chunk_id) <= 1)
 			range[1] = size - 1;
 		ft_print_range(range);
-		ft_move_chunck_to_a(d, range);
+		ft_move_chunck_to_a(d, range, not_dest);
 		chunk_id--;
 	}
 }

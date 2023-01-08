@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/05 14:06:19 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:11:14 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,6 @@ void	ft_print_sort_anal(t_sort_anal *s_anal)
 	ft_putstr_fd("\nsize: ", 2);
 	ft_putnbr_fd(s_anal->size, 2);
 	ft_putstr_fd("\n", 2);
-}
-
-static int	ft_to_do_when_sorted(t_push_swap_data *d, t_sort_anal *s_anal)
-{
-	int		is_sorted;
-	int		min_loc;
-	int		ret;
-
-	is_sorted = s_anal->is_sorted;
-	min_loc = s_anal->min_loc;
-	free_x ((void **)&s_anal);
-	ret = (is_sorted && d->stack_b->size == 0);
-	if (ret && min_loc > 0)
-	{
-		if (min_loc < (int)(d->stack_a->size / 2))
-			psd_apply_cmd_xn(d, rr, min_loc, 1);
-		else
-			psd_apply_cmd_xn(d, rrr, d->stack_a->size - min_loc, 1);
-	}
-	return (ret);
 }
 
 static void	ft_apply_sorting(t_push_swap_data *d)

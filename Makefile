@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2023/01/05 12:19:56 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/01/08 16:11:46 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,8 @@ SRCU_R:= ft_check_duplicated.c\
 	ft_move_chunck_to_s.c\
 	ft_move_chunks_to_s.c\
 	ft_sort_anal.c\
+	ft_to_do_when_soted.c\
+	ft_expel_unsorted.c\
 	ft_sort_2.c\
 	ft_sort_3_a.c\
 	ft_sort_4_5_a.c\

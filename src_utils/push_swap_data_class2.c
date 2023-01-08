@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 11:24:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/02 15:10:27 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:31:08 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_apply_c1xn_n_c2_dd(t_push_swap_data *d, t_stack_cmd sc1, \
 	psd_apply_cmd(d, sc2, 1);
 }
 
-int	ft_find_ins_loc_in_dir(t_push_swap_data *d, \
+/*int	ft_find_ins_loc_in_dir(t_push_swap_data *d, \
 			int d_r, t_ips_opt *ips_opt)
 {
 	t_dllist	*l;
@@ -56,9 +56,9 @@ int	ft_find_ins_loc_in_dir(t_push_swap_data *d, \
 	else
 		ft_dllstfindfirstinsertloc (&s_loc, l, ips_opt);
 	return (s_loc);
-}
+}*/
 
-void	psd_move_from_loc_to_ins_d(t_push_swap_data *d, int a_b, \
+/*void	psd_move_from_loc_to_ins_d(t_push_swap_data *d, int a_b, \
 			size_t loc, int order)
 {
 	t_ips_opt	ips_opt;
@@ -83,4 +83,4 @@ void	psd_move_from_loc_to_ins_d(t_push_swap_data *d, int a_b, \
 	psd_apply_cmd_xn(d, sc1, loc, 0);
 	psd_apply_cmd_xn(d, sc2, loc, 0);
 	psd_apply_cmd(d, sc3, 0);
-}
+}*/

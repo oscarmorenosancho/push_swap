@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/08 12:53:20 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:53:20 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_move_desc
 	int		d_d_r;
 	int		a_b;
 	int		max;
+	int		not_dest;
 }	t_move_desc;
 
 typedef struct s_sort_anal
@@ -91,6 +92,7 @@ typedef struct s_expel_data
 	int	start_sz;
 	int	pivot;
 	int	min_pivot;
+	int	max;
 }	t_expel_data;
 
 int					ft_check_duplicated(int *tab, size_t size);
@@ -147,15 +149,19 @@ void				ft_find_best_move_r(t_move_desc *mv_desc, \
 						t_push_swap_data *d, int *range);
 void				ft_find_best_move(t_move_desc *mv_desc, \
 						t_push_swap_data *d, int *range, int a_b);
-void				ft_move_chunck_to_b(t_push_swap_data *d, int *range);
-void				ft_move_chunck_to_a(t_push_swap_data *d, int *range);
+void				ft_move_chunck_to_b(t_push_swap_data *d,
+						int *range, int not_dest);
+void				ft_move_chunck_to_a(t_push_swap_data *d,
+						int *range, int not_dest);
 void				ft_move_chuncks_to_b(t_push_swap_data *d, \
-						size_t scale);
+						size_t scale, int not_dest);
+void				ft_move_chuncks_to_a(t_push_swap_data *d, \
+						size_t scale, int not_dest);
 void				ft_move_eq_chuncks_to_b(t_push_swap_data *d, \
-						size_t chunk_size);
+						size_t chunk_size, int not_dest);
 void				ft_move_eq_chuncks_to_a(t_push_swap_data *d, \
-						size_t chunk_size);
-void				ft_move_chuncks_to_a(t_push_swap_data *d, size_t scale);
+						size_t chunk_size, int not_dest);
+void				ft_expel_unsorted(t_push_swap_data *d);
 void				ft_sort_2_a_b(t_push_swap_data *d);
 void				ft_sort_2_b_a(t_push_swap_data *d);
 void				ft_sort_2_anb(t_push_swap_data *d);
@@ -168,5 +174,7 @@ int					fr_is_convinient_cmd_in_both(t_push_swap_data *psd, \
 int					ft_pow_2(int n);
 int					ft_sum_pow_2(int n);
 int					ft_get_sum_pow_lt(int n);
+int					ft_to_do_when_sorted(t_push_swap_data *d, \
+						t_sort_anal *s_anal);
 
 #endif
