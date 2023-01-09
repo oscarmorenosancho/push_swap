@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:53:12 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 13:20:39 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:10:19 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,5 @@ int	*ft_take_arguments(t_push_swap_data **p, \
 		}
 		return (tab);
 	}
-	ft_log_err_exit("Not enough arguments were provided\n", p);
 	return (NULL);
 }

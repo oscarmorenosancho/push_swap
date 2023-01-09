@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:17:34 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/15 18:20:33 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:36:41 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include "../libft.h"
 
+int		ft_log_error_msg(char *msg);
 int		ft_log_error(char *msg);
 size_t	ft_linelen(const char *s);
 int		ft_every_in_line(char *s, int (*f)(char, char), char arg);

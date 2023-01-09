@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:30:00 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/09 14:04:30 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:59:26 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	ft_move_close_chuncks_to_a(t_push_swap_data *d, int not_dest)
 		if (range[0] <= 0)
 			range[0] += d->size;
 		range[1] = (se->order + chunk_size / 2);
-		while (range[1] >= (int)d->size)
+		while (range[1] > (int)d->size)
 			range[1] -= d->size;
 		ft_move_chunck_to_a(d, range, not_dest);
 	}

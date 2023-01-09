@@ -1,4 +1,4 @@
 ARGPS=$(cat $1);
 #echo ${ARGPS};
-#leaks -atExit -- 
+#leaks --atExit -- 
 ./push_swap $(echo ${ARGPS})

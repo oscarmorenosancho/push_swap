@@ -6,33 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/08 16:11:14 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:53:18 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_print_sort_anal(t_sort_anal *s_anal)
-{
-	ft_putstr_fd("sort analysis of a\n", 2);
-	if (s_anal->is_sorted)
-		ft_putstr_fd("is sorted\n", 2);
-	else
-		ft_putstr_fd("is NOT sorted\n", 2);
-	ft_putstr_fd("min: ", 2);
-	ft_putnbr_fd(s_anal->min, 2);
-	ft_putstr_fd("\nmin loc: ", 2);
-	ft_putnbr_fd(s_anal->min_loc, 2);
-	ft_putstr_fd("\nmax: ", 2);
-	ft_putnbr_fd(s_anal->max, 2);
-	ft_putstr_fd("\nmax_loc: ", 2);
-	ft_putnbr_fd(s_anal->max_loc, 2);
-	ft_putstr_fd("\nruns: ", 2);
-	ft_putnbr_fd(s_anal->runs, 2);
-	ft_putstr_fd("\nsize: ", 2);
-	ft_putnbr_fd(s_anal->size, 2);
-	ft_putstr_fd("\n", 2);
-}
 
 static void	ft_apply_sorting(t_push_swap_data *d)
 {
@@ -79,7 +57,7 @@ int	main(int argc, char const *argv[])
 		ft_sort_int_tab(d->sorted, d->size);
 		if (ft_check_duplicated(d->sorted, d->size))
 			ft_process_valid_data(d);
-		psd_dispose(&d);
 	}
+	psd_dispose(&d);
 	return (0);
 }
