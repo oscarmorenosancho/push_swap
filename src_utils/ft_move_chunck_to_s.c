@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:16:28 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/08 16:47:57 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:22:48 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ void	ft_move_chunck_to_b(t_push_swap_data *d, int *range, int not_dest)
 
 	chunck_size = range[1] - range[0] + 1;
 	half_stack_size = (d->stack_a->size + 1) / 2;
+	mv_desc.not_dest = not_dest;
+	mv_desc.a_b = 1;
 	i = 0;
 	while (i < chunck_size)
 	{
-		ft_find_best_move(&mv_desc, d, range, 1);
+		ft_find_best_move(&mv_desc, d, range);
 		mv_desc.not_dest = not_dest;
 		psd_apply_move(d, &mv_desc);
 		i++;
@@ -40,10 +42,12 @@ void	ft_move_chunck_to_a(t_push_swap_data *d, int *range, int not_dest)
 
 	chunck_size = range[1] - range[0] + 1;
 	half_stack_size = (d->stack_b->size + 1) / 2;
+	mv_desc.not_dest = not_dest;
+	mv_desc.a_b = 0;
 	i = 0;
 	while (i < chunck_size)
 	{
-		ft_find_best_move(&mv_desc, d, range, 0);
+		ft_find_best_move(&mv_desc, d, range);
 		mv_desc.not_dest = not_dest;
 		psd_apply_move(d, &mv_desc);
 		i++;

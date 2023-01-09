@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 11:25:42 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/08 16:20:51 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/09 11:12:33 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,18 @@ static int	ft_must_be_expelled(t_dllist *dll, t_expel_data *ed)
 	int			max_limit;
 
 	se = dll->content;
-	max_limit = ed->pivot + ed->start_sz / 2;
-	if (se->order < ed->max)
-		return (se->order < ed->pivot || se->order > max_limit);
+	max_limit = ed->pivot + ed->start_sz / 16;
+	if (ed->run == 0)
+	{
+		if (se->order < ed->max)
+			return (se->order < ed->pivot || se->order > max_limit);
+		else
+			return (se->order > ed->min_pivot);
+	}
 	else
-		return (se->order > ed->min_pivot);
+	{
+		return (se->order > ed->min_pivot || se->order < ed->pivot);
+	}
 }
 
 /*static int	ft_must_be_swapped(t_dllist *dll, t_expel_data *ed)
@@ -69,6 +76,7 @@ static void	ft_expel_iter(unsigned int i, t_push_swap_data *d, int max)
 		ed.start_sz = d->stack_a->size;
 		ed.pivot = se->order;
 		ed.min_pivot = se->order;
+		ed.run = 0;
 	}
 	else
 	{
@@ -106,7 +114,7 @@ void	ft_expel_unsorted(t_push_swap_data *d)
 	i = 0;
 	sz = d->stack_a->size;
 	s_anal = ft_sort_anal(sd_asc, d->stack_a->dll, d->stack_a->size);
-	while (i < sz && ! s_anal->is_sorted)
+	while (i <= sz && ! s_anal->is_sorted)
 	{
 		ft_expel_iter(i, d, s_anal->max);
 		free_x((void **)&s_anal);

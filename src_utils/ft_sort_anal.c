@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:04:26 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/05 12:56:13 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:10:22 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ t_sort_anal	*ft_sort_anal(t_sort_dir sd, t_dllist *dll, int size)
 {
 	t_sort_anal	*s_anal;
 
+	if (! size || !dll)
+		return (NULL);
 	s_anal = malloc(sizeof(t_sort_anal));
 	if (! s_anal)
 		return (s_anal);

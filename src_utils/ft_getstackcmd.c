@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 10:35:47 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/23 10:55:55 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:52:03 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,18 @@ static t_stack_cmd	ft_getstackcmd_r(char *sc)
 
 t_stack_cmd	ft_getstackcmd(char *sc)
 {
-	if (sc[0] == 's')
-		return (ft_getstackcmd_s(sc));
-	else if (sc[0] == 'p')
-		return (ft_getstackcmd_p(sc));
-	else if (sc[0] == 'r' && sc[1] == 'r')
-		return (ft_getstackcmd_rr(sc));
-	else if (sc[0] == 'r')
-		return (ft_getstackcmd_r(sc));
-	else
+	int	line_size;
+
+	line_size = ft_linelen(sc);
+	if (line_size > 3 || line_size < 2)
 		return (nop);
+	if (sc[0] == 's' && line_size == 2)
+		return (ft_getstackcmd_s(sc));
+	if (sc[0] == 'p' && line_size == 2)
+		return (ft_getstackcmd_p(sc));
+	if (sc[0] == 'r' && sc[1] == 'r' && line_size == 3)
+		return (ft_getstackcmd_rr(sc));
+	if (sc[0] == 'r' && line_size == 2)
+		return (ft_getstackcmd_r(sc));
+	return (nop);
 }

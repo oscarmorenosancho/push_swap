@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:00:13 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/03 17:57:35 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:27:12 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ void	ft_print_move(t_move_desc *mv_desc, char *tittle)
 }
 
 void	ft_find_best_move(t_move_desc *mv_desc, \
-			t_push_swap_data *d, int *range, int a_b)
+			t_push_swap_data *d, int *range)
 {
 	t_move_desc	mv_desc_d;
 	t_move_desc	mv_desc_r;
 
-	mv_desc_d.a_b = a_b;
+	mv_desc_d = *mv_desc;
+	mv_desc_r = *mv_desc;
 	ft_find_best_move_d(&mv_desc_d, d, range);
-	mv_desc_r.a_b = a_b;
 	ft_find_best_move_r(&mv_desc_r, d, range);
 	if (mv_desc_d.max < mv_desc_r.max)
 		*mv_desc = mv_desc_d;

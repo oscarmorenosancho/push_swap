@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/08 16:53:20 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/09 12:08:29 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_ips_opt
 {
 	t_sort_dir	sort_dir;
 	int			order;
+	int			size;
 }	t_ips_opt;
 
 typedef struct s_ps_stack
@@ -93,6 +94,7 @@ typedef struct s_expel_data
 	int	pivot;
 	int	min_pivot;
 	int	max;
+	int	run;
 }	t_expel_data;
 
 int					ft_check_duplicated(int *tab, size_t size);
@@ -148,7 +150,7 @@ void				ft_find_best_move_d(t_move_desc *mv_desc, \
 void				ft_find_best_move_r(t_move_desc *mv_desc, \
 						t_push_swap_data *d, int *range);
 void				ft_find_best_move(t_move_desc *mv_desc, \
-						t_push_swap_data *d, int *range, int a_b);
+						t_push_swap_data *d, int *range);
 void				ft_move_chunck_to_b(t_push_swap_data *d,
 						int *range, int not_dest);
 void				ft_move_chunck_to_a(t_push_swap_data *d,
@@ -161,6 +163,8 @@ void				ft_move_eq_chuncks_to_b(t_push_swap_data *d, \
 						size_t chunk_size, int not_dest);
 void				ft_move_eq_chuncks_to_a(t_push_swap_data *d, \
 						size_t chunk_size, int not_dest);
+void				ft_move_close_chuncks_to_a(t_push_swap_data *d, \
+						int not_dest);
 void				ft_expel_unsorted(t_push_swap_data *d);
 void				ft_sort_2_a_b(t_push_swap_data *d);
 void				ft_sort_2_b_a(t_push_swap_data *d);
