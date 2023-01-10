@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 14:11:29 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/03 18:29:16 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/10 17:04:48 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_dllist	*ft_dllstfindfirstnoderev(int *loc, t_dllist *lst, \
 		prev_is_head = 0;
 		cur = lst;
 		i = 0;
-		while (cur && ! prev_is_head && ((loc && *loc > 0) || i < *loc))
+		while (cur && ! prev_is_head && (loc && (*loc < 1 || i < *loc)))
 		{	
 			if ((*f)(i, cur, arg))
 			{
