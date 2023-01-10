@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2023/01/09 10:00:11 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/01/10 12:30:25 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,6 @@ SRCU_R:= ft_check_duplicated.c\
 	stack_class.c\
 	stack_class2.c\
 	ft_getstackcmd.c\
-	ft_print_tab.c\
-	ft_print_stack.c\
-	ft_print_stacks.c\
 	push_swap_data_class.c\
 	push_swap_data_class2.c\
 	push_swap_data_class3.c\
@@ -43,8 +40,7 @@ SRCU_R:= ft_check_duplicated.c\
 	ft_move_chunck_to_s.c\
 	ft_move_chunks_to_s.c\
 	ft_sort_anal.c\
-	ft_to_do_when_soted.c\
-	ft_expel_unsorted.c\
+	ft_to_do_when_sorted.c\
 	ft_sort_2.c\
 	ft_sort_3_a.c\
 	ft_sort_4_5_a.c\

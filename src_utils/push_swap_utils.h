@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/09 12:08:29 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:15:19 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,6 @@ typedef struct s_push_swap_data
 	t_list		*cmd_list;
 }	t_push_swap_data;
 
-typedef struct s_expel_data
-{
-	int	start_sz;
-	int	pivot;
-	int	min_pivot;
-	int	max;
-	int	run;
-}	t_expel_data;
-
 int					ft_check_duplicated(int *tab, size_t size);
 int					ft_check_n_get_argument(const char *s, int *nbr);
 int					*ft_take_arguments(t_push_swap_data **p, \
@@ -127,10 +118,6 @@ void				pss_push(t_ps_stack *dst, t_ps_stack *src);
 void				pss_swap(t_ps_stack *pss);
 void				pss_rotate(t_ps_stack *pss);
 void				pss_revrotate(t_ps_stack *pss);
-void				ft_print_tab(int *tab, size_t size);
-void				ft_print_el(void *content);
-void				ft_print_stack(t_ps_stack *stack, char name, char *sep);
-void				ft_print_stacks(t_push_swap_data *d, char *sep, int fd);
 t_ps_stack			*ft_fill_stack_with_tab(t_ps_stack	*dst, int *tab, \
 						int *sorted, size_t size);
 t_push_swap_data	*psd_constructor(void);
@@ -139,10 +126,6 @@ int					psd_apply_cmd(t_push_swap_data *psd, t_stack_cmd sc, \
 						int dis_dbl);
 int					psd_apply_cmd_xn(t_push_swap_data *psd, t_stack_cmd sc, \
 						size_t n, int dis_dbl);
-void				ft_apply_c1xn_n_c2(t_push_swap_data *d, t_stack_cmd sc1, \
-						size_t n, t_stack_cmd sc2);
-void				ft_apply_c1xn_n_c2_dd(t_push_swap_data *d, t_stack_cmd sc1, \
-						size_t n, t_stack_cmd sc2);
 void				psd_apply_move(t_push_swap_data *d, t_move_desc *mv_desc);
 void				ft_read_n_play_cmd_list_fd(t_push_swap_data	*psd, int fd);
 void				ft_find_best_move_d(t_move_desc *mv_desc, \
@@ -155,17 +138,16 @@ void				ft_move_chunck_to_b(t_push_swap_data *d,
 						int *range, int not_dest);
 void				ft_move_chunck_to_a(t_push_swap_data *d,
 						int *range, int not_dest);
+void				ft_move_shr_chuncks_to_b(t_push_swap_data *d, \
+						size_t chunk_size, int not_dest);
+void				ft_move_best_to_b(t_push_swap_data *d, \
+						int *range, int not_dest);
+void				ft_move_best_to_a(t_push_swap_data *d, \
+						int *range, int not_dest);
 void				ft_move_chuncks_to_b(t_push_swap_data *d, \
-						size_t scale, int not_dest);
+						size_t chunk_size, int not_dest);
 void				ft_move_chuncks_to_a(t_push_swap_data *d, \
-						size_t scale, int not_dest);
-void				ft_move_eq_chuncks_to_b(t_push_swap_data *d, \
 						size_t chunk_size, int not_dest);
-void				ft_move_eq_chuncks_to_a(t_push_swap_data *d, \
-						size_t chunk_size, int not_dest);
-void				ft_move_close_chuncks_to_a(t_push_swap_data *d, \
-						int not_dest);
-void				ft_expel_unsorted(t_push_swap_data *d);
 void				ft_sort_2_a_b(t_push_swap_data *d);
 void				ft_sort_2_b_a(t_push_swap_data *d);
 void				ft_sort_2_anb(t_push_swap_data *d);

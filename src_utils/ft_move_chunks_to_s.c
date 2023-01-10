@@ -6,57 +6,13 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:30:00 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/09 16:59:26 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:53:23 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_utils.h"
 
-void	ft_move_chuncks_to_b(t_push_swap_data *d, size_t scale, \
-		int not_dest)
-{
-	int	range[2];
-	int	size;
-	int	chunk_size;
-
-	size = d->stack_a->size;
-	chunk_size = (size / 2) / scale;
-	range[0] = 0;
-	range[1] = size >> 1;
-	while (range[1] < size)
-	{
-		ft_move_chunck_to_b(d, range, not_dest);
-		range[0] = range[1] + 1;
-		chunk_size >>= 1;
-		if (chunk_size < 1)
-			chunk_size = 1;
-		range[1] = range[0] + chunk_size;
-	}
-}
-
-void	ft_move_chuncks_to_a(t_push_swap_data *d, size_t scale, \
-		int not_dest)
-{
-	int	range[2];
-	int	size;
-	int	chunk_size;
-
-	size = d->stack_b->size;
-	chunk_size = (size / 2) / scale;
-	range[0] = size >> 1;
-	range[1] = size - 1;
-	while (range[0] >= 0)
-	{
-		ft_move_chunck_to_a(d, range, not_dest);
-		range[1] = range[0] - 1;
-		chunk_size >>= 1;
-		if (chunk_size < 1)
-			chunk_size = 1;
-		range[0] = range[1] - chunk_size;
-	}
-}
-
-void	ft_move_eq_chuncks_to_b(t_push_swap_data *d, size_t chunk_size, \
+void	ft_move_chuncks_to_b(t_push_swap_data *d, size_t chunk_size, \
 			int not_dest)
 {
 	int	range[2];
@@ -76,9 +32,13 @@ void	ft_move_eq_chuncks_to_b(t_push_swap_data *d, size_t chunk_size, \
 		ft_move_chunck_to_b(d, range, not_dest);
 		chunk_id++;
 	}
+	range[0] = 0;
+	range[1] = d->size;
+	while (d->stack_a->size > 0)
+		ft_move_best_to_b(d, range, not_dest);
 }
 
-void	ft_move_eq_chuncks_to_a(t_push_swap_data *d, size_t chunk_size, \
+void	ft_move_chuncks_to_a(t_push_swap_data *d, size_t chunk_size, \
 			int not_dest)
 {
 	int	range[2];
@@ -98,28 +58,37 @@ void	ft_move_eq_chuncks_to_a(t_push_swap_data *d, size_t chunk_size, \
 		ft_move_chunck_to_a(d, range, not_dest);
 		chunk_id--;
 	}
+	range[0] = 0;
+	range[1] = d->size;
+	while (d->stack_b->size > 0)
+		ft_move_best_to_a(d, range, not_dest);
 }
 
-void	ft_move_close_chuncks_to_a(t_push_swap_data *d, int not_dest)
+void	ft_move_shr_chuncks_to_b(t_push_swap_data *d, size_t chunk_size, \
+			int not_dest)
 {
-	int			range[2];
-	t_dllist	*dll;
-	t_stack_el	*se;
-	int			chunk_size;
+	int	range[2];
+	int	size;
+	int	i;
 
-	if (d->stack_b->size == 0)
-		psd_apply_cmd(d, pa, 1);
-	dll = d->stack_a->dll;
-	se = dll->content;
-	chunk_size = d->size - d->stack_b->size;
-	while (d->stack_b->size > 0)
+	size = d->size;
+	range[0] = 0;
+	range[1] = chunk_size - 1;
+	i = 0;
+	while (range[0] < size)
 	{
-		range[0] = (se->order - chunk_size / 2);
-		if (range[0] <= 0)
-			range[0] += d->size;
-		range[1] = (se->order + chunk_size / 2);
-		while (range[1] > (int)d->size)
-			range[1] -= d->size;
-		ft_move_chunck_to_a(d, range, not_dest);
+		ft_move_chunck_to_b(d, range, not_dest);
+		if (fr_is_convinient_cmd_in_both(d, sa))
+			psd_apply_cmd(d, sb, 1);
+		range[0] = range[1] + 1;
+		if (chunk_size > 3)
+		{
+			if (i % 3 == 1 && d->size > 100)
+				chunk_size /= 2;
+			range[1] = range[0] + chunk_size - 1;
+		}
+		else
+			range[1] = d->size;
+		i++;
 	}
 }
