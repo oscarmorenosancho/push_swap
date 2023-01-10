@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 10:33:40 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 12:26:38 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:30:26 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int	ft_check_stack_ordered(t_dllist *dll)
 	if (! dll)
 		return (1);
 	prev_val = -1;
+	loc = -1;
 	return (! ft_dllstfindfirst(&loc, dll, &ft_is_le_prev, &prev_val));
 }
