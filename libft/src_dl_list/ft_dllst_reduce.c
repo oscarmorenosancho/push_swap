@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:17:40 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/10/28 13:37:32 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:33:41 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_dllst_reduce(t_dllist *lst, \
 	if (f)
 	{
 		while (cur && ! next_is_head)
-		{	
+		{
 			(*f)(i, (void *)cur, arg);
 			cur = cur->next;
 			next_is_head = (cur == lst);

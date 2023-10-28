@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_to_do_when_soted.c                              :+:      :+:    :+:   */
+/*   ft_to_do_when_sorted.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:07:44 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/08 16:08:34 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:10:48 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include <push_swap_utils.h>
 
 int	ft_to_do_when_sorted(t_push_swap_data *d, t_sort_anal *s_anal)
 {

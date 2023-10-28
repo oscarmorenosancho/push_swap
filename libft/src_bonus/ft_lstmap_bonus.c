@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:56:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/10/28 13:36:30 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:32:59 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static t_list	*ft_appendnewnode(t_list *newnode, t_list *newlistlast, \
 	{
 		newlistlast = ft_lstlast(*newlist);
 		if (newlistlast)
-		newlistlast->next = newnode;
+			newlistlast->next = newnode;
 	}
 	return (newnode);
 }

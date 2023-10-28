@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:26:52 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/10/28 16:21:07 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:10:48 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include <push_swap_utils.h>
 
 void	ft_putstackcmd_fd(t_stack_cmd sc, int fd)
 {

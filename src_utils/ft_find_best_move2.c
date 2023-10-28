@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_find_best_move2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 12:28:16 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/09 12:13:17 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:10:49 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include <push_swap_utils.h>
 
 static size_t	ft_init_info(int a_b, t_push_swap_data *d, \
 					t_dllist **s_dllist, t_dllist **d_dllist)

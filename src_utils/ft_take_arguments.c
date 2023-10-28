@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_take_arguments.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:53:12 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/09 16:10:19 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:10:49 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include <push_swap_utils.h>
 
 int	*ft_take_arguments(t_push_swap_data **p, \
 						int argc, char const *argv[])

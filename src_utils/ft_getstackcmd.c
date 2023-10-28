@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getstackcmd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 10:35:47 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/09 10:52:03 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:10:49 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include <push_swap_utils.h>
 
 static t_stack_cmd	ft_getstackcmd_s(char *sc)
 {

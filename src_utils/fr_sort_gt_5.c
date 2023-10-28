@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fr_sort_gt_5.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 13:43:07 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/10 14:14:54 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:10:48 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include <push_swap_utils.h>
 
 static int	ft_eval_chunk_size(int size, int count)
 {

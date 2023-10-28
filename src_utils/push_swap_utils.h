@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:24:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/10 13:15:19 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:24:24 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_UTILS_H
 # define PUSH_SWAP_UTILS_H
-# include "../libft/libft.h"
+# include <libft.h>
 
 typedef enum e_stack_cmd
 {
@@ -107,7 +107,7 @@ int					ft_stack_head_order_n_bit(t_dllist *dll, int n);
 void				ft_putstackcmd_fd(t_stack_cmd sc, int fd);
 void				ft_putstackcmdlst_fd(t_list *scl, int fd);
 t_stack_cmd			ft_getstackcmd(char *sc);
-int					ft_check_stack_ordered(t_dllist *dll);
+int					ft_check_stack_ordered(t_ps_stack *stk);
 t_ps_stack			*pss_constructor(void);
 void				pss_clear(t_ps_stack *pss);
 void				pss_dispose(t_ps_stack **pss);

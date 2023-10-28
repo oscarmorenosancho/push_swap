@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_n_get_argument.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:35:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 14:36:40 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:25:17 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include <push_swap_utils.h>
 
 int	ft_check_n_get_argument(const char *s, int *nbr)
 {

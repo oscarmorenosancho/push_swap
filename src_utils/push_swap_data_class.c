@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_data_class.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:34:44 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/03 16:37:03 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:33:25 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include <push_swap_utils.h>
 
 t_push_swap_data	*psd_constructor(void)
 {
@@ -99,7 +99,7 @@ int	psd_apply_cmd(t_push_swap_data *psd, t_stack_cmd sc, int dis_dbl)
 			sca = rrr;
 		else if (sc == sa || sc == sb)
 			sca = ss;
-	}		
+	}
 	ln->content = (void *)sca;
 	ft_lstadd_front(&psd->cmd_list, ln);
 	psd_exe_cmd(psd, sca);

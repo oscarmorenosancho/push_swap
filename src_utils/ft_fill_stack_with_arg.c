@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_stack_with_arg.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:18:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 13:09:47 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:10:48 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include <push_swap_utils.h>
 
 static int	ft_equal_int(unsigned int i, int el, int arg)
 {

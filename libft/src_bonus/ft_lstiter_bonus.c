@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:52:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/10/28 13:36:30 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:32:42 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	if (f)
 	{
 		while (cur)
-		{	
+		{
 			(*f)((void *)cur->content);
 			cur = cur->next;
 		}

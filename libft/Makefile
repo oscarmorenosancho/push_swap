@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2023/10/28 21:57:56 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/28 23:19:16 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -137,7 +137,7 @@ DEPSDLL			:= $(addprefix $(BUILD_PATH),$(SRCDLL_F:.c=.d))
 DEPSU			:= $(addprefix $(BUILD_PATH),$(SRCU_F:.c=.d))
 
 CC				:= 	@gcc
-CFLAGS			:= -Wall -Werror -Wextra -MMD -g
+CFLAGS			:= -Wall -Werror -Wextra -pedantic -MMD -g
 RM				:= 	@rm -Rf
 LIBC			:= 	@ar -rcs
 HEADER			:= libft.h 

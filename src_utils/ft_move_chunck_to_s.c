@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_move_chunck_to_s.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:16:28 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/10 11:17:20 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:10:49 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include <push_swap_utils.h>
 
 void	ft_move_chunck_to_b(t_push_swap_data *d, int *range, int not_dest)
 {

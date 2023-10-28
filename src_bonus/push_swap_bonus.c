@@ -3,14 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:14:08 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/10 15:53:48 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:52:18 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include <push_swap_bonus.h>
+
+void	ft_print_el(void *content)
+{
+	t_stack_el	*el;
+
+	el = content;
+	ft_putstr_fd("nbr: ", 1);
+	ft_putnbr_fd(el->nbr, 1);
+	ft_putstr_fd(", \torder: ", 1);
+	ft_putnbr_fd(el->order, 1);
+	ft_putchar_fd('\n', 1);
+}
+
+void	ft_print_stack(t_ps_stack *stack, char name, char *sep)
+{
+	ft_putstr_fd("STACK ", 1);
+	ft_putchar_fd(name, 1);
+	ft_putstr_fd(": size: ", 1);
+	ft_putnbr_fd(stack->size, 1);
+	ft_putstr_fd("\n", 1);
+	ft_dllstiter(stack->dll, &ft_print_el);
+	ft_putstr_fd(sep, 1);
+}
 
 static void	ft_process_valid_data(t_push_swap_data *d)
 {
@@ -19,7 +42,9 @@ static void	ft_process_valid_data(t_push_swap_data *d)
 	free_x((void **)&d->sorted);
 	free_x((void **)&d->tab);
 	ft_read_n_play_cmd_list_fd(d, 0);
-	if (ft_check_stack_ordered(d->stack_a->dll) && d->stack_b->size == 0)
+	ft_print_stack(d->stack_a, 'A', "|");
+	ft_print_stack(d->stack_b, 'B', "|");
+	if (ft_check_stack_ordered(d->stack_a))
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);

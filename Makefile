@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2023/10/28 17:14:28 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/28 23:14:06 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ DEPSB			:= $(addprefix $(BUILD_PATH),$(SRCB_F:.c=.d))
 DEPSU			:= $(addprefix $(BUILD_PATH),$(SRCU_F:.c=.d))
 
 CC	:= 	gcc
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra -pedantic -g
 CFD := -MMD
 RM	:= 	rm -Rf
 
@@ -97,8 +97,9 @@ folder_create = $(shell mkdir -p $(1))
 
 .SECONDEXPANSION:
 
-${BUILD_PATH}%.o : %.c ${HEADERM} | $$(call folder_create,$$(dir $$@))
-	${CC} ${CFLAGS} ${CFD} -I ${SRCM_PATH} -I ${SRCB_PATH} -I ${SRCU_PATH} -I . -c $< -o $@
+${BUILD_PATH}%.o : %.c ${HEADERM} Makefile | $$(call folder_create,$$(dir $$@))
+	${CC} ${CFLAGS} ${CFD} -I ${SRCM_PATH} -I ${SRCB_PATH} -I ${SRCU_PATH}\
+		-I $(LIBFT_PATH) -I . -c $< -o $@
 
 all : $(NAME)
 
@@ -109,11 +110,11 @@ bonus : $(NAMEB)
 	@touch $@
 
 -include $(DEPS)
-$(NAME) : ${LIBFT_A} ${OBJM} ${OBJU}
+$(NAME) : ${LIBFT_A} ${OBJM} ${OBJU} Makefile
 	${CC} ${CFLAGS} -I ${HEADERM} ${LIBS_FLAGS} ${OBJM} ${OBJU} ${LIBFT_A}  -o $@
 
 -include $(DEPSB)
-$(NAMEB) : ${LIBFT_A} ${OBJB} ${OBJU}
+$(NAMEB) : ${LIBFT_A} ${OBJB} ${OBJU} Makefile
 	${CC} ${CFLAGS} -I ${HEADERB} ${LIBS_FLAGS} ${OBJB} ${OBJU} ${LIBFT_A} -o $@
 
 ${LIBFT_A} : ${LIBFT_D_CONT}

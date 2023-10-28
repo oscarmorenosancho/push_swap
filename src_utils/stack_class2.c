@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stack_class2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 11:35:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 12:03:36 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:10:49 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include <push_swap_utils.h>
 
 t_dllist	*pss_extract(t_ps_stack *pss)
 {

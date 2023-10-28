@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_n_play_cmd_list_fd.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 12:49:31 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/29 17:43:43 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:10:48 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include <push_swap_utils.h>
 
 void	ft_read_n_play_cmd_list_fd(t_push_swap_data	*psd, int fd)
 {
