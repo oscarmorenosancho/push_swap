@@ -6,14 +6,14 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2023/10/28 16:19:51 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/28 17:14:28 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := push_swap
 NAMEB := checker
 
-SRC_R:= push_swap.c
+SRCM_R:= push_swap.c
 
 SRCB_R:= push_swap_bonus.c
 
@@ -49,31 +49,42 @@ SRCU_R:= ft_check_duplicated.c\
 	fr_is_convinient_cmd_in_both.c\
 	ft_sum_pow2.c
 
-SRC_PATH := src/
-SRCB_PATH := src_bonus/
-SRCU_PATH := src_utils/
-LIBFT_PATH := libft/
+SRCM_PATH		:= src/
+SRCB_PATH		:= src_bonus/
+SRCU_PATH		:= src_utils/
+LIBFT_PATH		:= libft/
+BUILD_PATH		:= .build/
 
-SRC := ${addprefix $(SRC_PATH), $(SRC_R)}
+SRCM_F			:= $(addprefix $(SRCM_PATH), $(SRCM_R))
+SRCB_F			:= $(addprefix $(SRCB_PATH), $(SRCB_R))
+SRCU_F			:= $(addprefix $(SRCU_PATH), $(SRCU_R))
 
-SRCB := ${addprefix $(SRCB_PATH), $(SRCB_R)}
+SRCM_BP			:= $(addprefix $(BUILD_PATH),$(SRCM_PATH))
+SRCB_BP			:= $(addprefix $(BUILD_PATH),$(SRCB_PATH))
+SRCU_BP			:= $(addprefix $(BUILD_PATH),$(SRCU_PATH))
 
-SRCU := ${addprefix $(SRCU_PATH), $(SRCU_R)}
+SRCM_FP			:= $(addprefix $(SRCM_PATH), $(SRCM_F))
+SRCB_FP			:= $(addprefix $(SRCB_PATH), $(SRCB_F))
+SRCU_FP			:= $(addprefix $(SRCU_PATH), $(SRCU_F))
 
-OBJ := $(SRC:.c=.o)
-OBJB := $(SRCB:.c=.o)
-OBJU := $(SRCU:.c=.o)
+SRCM			:= ${addprefix $(SRCM_PATH), $(SRCM_R)}
+SRCB			:= ${addprefix $(SRCB_PATH), $(SRCB_R)}
+SRCU			:= ${addprefix $(SRCU_PATH), $(SRCU_R)}
 
-DEPS := $(SRC:.c=.d)
-DEPSB := $(SRCB:.c=.d)
-DEPSU := $(SRCU:.c=.d)
+OBJM			:= $(addprefix $(BUILD_PATH),$(SRCM_F:.c=.o))
+OBJB			:= $(addprefix $(BUILD_PATH),$(SRCB_F:.c=.o))
+OBJU			:= $(addprefix $(BUILD_PATH),$(SRCU_F:.c=.o))
+
+DEPSM			:= $(addprefix $(BUILD_PATH),$(SRCM_F:.c=.d))
+DEPSB			:= $(addprefix $(BUILD_PATH),$(SRCB_F:.c=.d))
+DEPSU			:= $(addprefix $(BUILD_PATH),$(SRCU_F:.c=.d))
 
 CC	:= 	gcc
 CFLAGS := -Wall -Werror -Wextra
 CFD := -MMD
-RM	:= 	rm -f
+RM	:= 	rm -Rf
 
-HEADER := ${addprefix $(SRC_PATH), push_swap.h}
+HEADERM := ${addprefix $(SRCM_PATH), push_swap.h}
 HEADERB := ${addprefix $(SRCB_PATH), push_swap_bonus.h}
 HEADERU := ${addprefix $(SRCU_PATH), push_swap_utils.h}
 LIBFT_H := ${addprefix $(LIBFT_PATH), libft.h}
@@ -82,23 +93,24 @@ LIBFT_D := ${addprefix $(LIBFT_PATH), libft.d}
 LIBS_FLAGS := -I ${LIBFT_H}
 LIBFT_D_CONT := $(shell cat ${LIBFT_D})
 
-src/%.o : src/%.c ${HEADER} ${HEADERU}
-	${CC} ${CFLAGS} ${CFD} -I ${SRC_PATH} -I ${SRCU_PATH} -I . -c $< -o $@
+folder_create = $(shell mkdir -p $(1))
 
-src_bonus/%.o : src_bonus/%.c ${HEADERB} ${HEADERU}
-	${CC} ${CFLAGS} ${CFD} -I ${SRCB_PATH} -I ${SRCU_PATH}  -I . -c $< -o $@
+.SECONDEXPANSION:
 
-src_utils/%.o : src_utils/%.c ${HEADERU}
-	${CC} ${CFLAGS} ${CFD} -I ${SRCU_PATH} -I . -c $< -o $@
+${BUILD_PATH}%.o : %.c ${HEADERM} | $$(call folder_create,$$(dir $$@))
+	${CC} ${CFLAGS} ${CFD} -I ${SRCM_PATH} -I ${SRCB_PATH} -I ${SRCU_PATH} -I . -c $< -o $@
 
 all : $(NAME)
+
+$(BUILD_PATH):
+	mkdir -p -m 777 $@
 
 bonus : $(NAMEB)
 	@touch $@
 
 -include $(DEPS)
-$(NAME) : ${LIBFT_A} ${OBJ} ${OBJU}
-	${CC} ${CFLAGS} -I ${HEADER} ${LIBS_FLAGS} ${OBJ} ${OBJU} ${LIBFT_A}  -o $@
+$(NAME) : ${LIBFT_A} ${OBJM} ${OBJU}
+	${CC} ${CFLAGS} -I ${HEADERM} ${LIBS_FLAGS} ${OBJM} ${OBJU} ${LIBFT_A}  -o $@
 
 -include $(DEPSB)
 $(NAMEB) : ${LIBFT_A} ${OBJB} ${OBJU}
@@ -108,7 +120,9 @@ ${LIBFT_A} : ${LIBFT_D_CONT}
 	make -C libft
 
 clean :
-	$(RM) $(OBJ)
+	@echo "Cleaning push_swap"
+	$(RM) ${BUILD_PATH}
+	$(RM) $(OBJM)
 	$(RM) $(OBJB)
 	$(RM) $(OBJU)
 	$(RM) $(DEPS)
@@ -117,6 +131,7 @@ clean :
 	make clean -C libft
 
 fclean : clean
+	@echo "Full cleaning of push_swap"
 	$(RM) $(NAME)
 	$(RM) $(NAMEB)
 	$(RM) bonus

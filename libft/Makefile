@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2023/10/28 16:12:44 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/28 16:29:43 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -188,6 +188,7 @@ clean :
 fclean : clean
 	@echo "Full cleaning of libft"
 	$(RM) $(NAME)
+	$(RM) *.d
 
 re: fclean all
 
