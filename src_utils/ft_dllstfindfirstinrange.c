@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:45:20 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/10/28 21:47:44 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:58:25 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static int	ft_is_in_range(unsigned int i, t_dllist *node, void *arg)
 
 t_dllist	*ft_dllstfindfirstinrange(int *loc, t_dllist *lst, int *range)
 {
-	return (ft_dllstfindfirstnode(loc, lst, &ft_is_in_range, range));
+	return (ft_dllstfindfirst(loc, lst, &ft_is_in_range, range));
 }
 
 t_dllist	*ft_dllstfindfirstinrangerev(int *loc, t_dllist *lst, int *range)
 {
-	return (ft_dllstfindfirstnoderev(loc, lst, &ft_is_in_range, range));
+	return (ft_dllstfindfirstrev(loc, lst, &ft_is_in_range, range));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dllstfindfirstinsertloc.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 14:17:24 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/10 09:57:33 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:58:39 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_dllist	*ft_dllstfindfirstinsertloc(int *loc, t_dllist *lst, \
 {
 	t_dllist	*ret;
 
-	ret = ft_dllstfindfirstnode(loc, lst, &ft_is_insert_pos, ips_opt);
+	ret = ft_dllstfindfirst(loc, lst, &ft_is_insert_pos, ips_opt);
 	return (ret);
 }
 
@@ -52,6 +52,6 @@ t_dllist	*ft_dllstfindfirstinsertlocrev(int *loc, t_dllist *lst, \
 {
 	t_dllist	*ret;
 
-	ret = ft_dllstfindfirstnoderev(loc, lst, &ft_is_insert_pos, ips_opt);
+	ret = ft_dllstfindfirstrev(loc, lst, &ft_is_insert_pos, ips_opt);
 	return (ret);
 }
