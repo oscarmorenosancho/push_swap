@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2023/10/28 16:29:43 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/28 21:44:56 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,8 +95,6 @@ SRCDLL := ft_dllstnew.c\
 	ft_dllst_revrotate.c\
 	ft_dllst_rotate.c\
 	ft_dllst_swap.c\
-	ft_dllstfindfirst.c\
-	ft_dllstfindfirstrev.c\
 	ft_dllstfindfirstnode.c\
 	ft_dllstfindfirstnoderev.c\
 	ft_dllst_reduce.c
