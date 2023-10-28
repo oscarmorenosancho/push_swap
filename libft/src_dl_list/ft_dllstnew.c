@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dllstnew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 18:57:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/20 16:33:59 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:37:32 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dl_list.h"
+#include <dl_list.h>
 
 t_dllist	*ft_dllstnew(void *content)
 {

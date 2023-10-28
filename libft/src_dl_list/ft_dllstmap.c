@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dllstmap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:56:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 14:04:27 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:37:32 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dl_list.h"
+#include <dl_list.h>
 #include "../libft.h"
 
 static t_dllist	*ft_applyftonode(t_dllist *curnode, void *(*f)(void *), \

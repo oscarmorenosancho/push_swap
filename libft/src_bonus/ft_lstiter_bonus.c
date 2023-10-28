@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:52:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 13:20:58 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:36:30 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include <libft_bonus.h>
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {

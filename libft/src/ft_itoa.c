@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 09:34:20 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 13:09:52 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:34:42 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_mand.h"
+#include <libft_mand.h>
 
 static char	ft_get_last_digit(unsigned int *n, unsigned int base)
 {

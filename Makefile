@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
+#    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2023/01/10 12:30:25 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/28 16:19:51 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,13 +83,13 @@ LIBS_FLAGS := -I ${LIBFT_H}
 LIBFT_D_CONT := $(shell cat ${LIBFT_D})
 
 src/%.o : src/%.c ${HEADER} ${HEADERU}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADER} -I ${HEADERU} -I ${LIBFT_H} -c $< -o $@
+	${CC} ${CFLAGS} ${CFD} -I ${SRC_PATH} -I ${SRCU_PATH} -I . -c $< -o $@
 
 src_bonus/%.o : src_bonus/%.c ${HEADERB} ${HEADERU}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADERB} -I ${HEADERU} -I ${LIBFT_H} -c $< -o $@
+	${CC} ${CFLAGS} ${CFD} -I ${SRCB_PATH} -I ${SRCU_PATH}  -I . -c $< -o $@
 
 src_utils/%.o : src_utils/%.c ${HEADERU}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADERU} -I ${LIBFT_H} -c $< -o $@
+	${CC} ${CFLAGS} ${CFD} -I ${SRCU_PATH} -I . -c $< -o $@
 
 all : $(NAME)
 
@@ -105,7 +105,7 @@ $(NAMEB) : ${LIBFT_A} ${OBJB} ${OBJU}
 	${CC} ${CFLAGS} -I ${HEADERB} ${LIBS_FLAGS} ${OBJB} ${OBJU} ${LIBFT_A} -o $@
 
 ${LIBFT_A} : ${LIBFT_D_CONT}
-	make bonus -C libft
+	make -C libft
 
 clean :
 	$(RM) $(OBJ)

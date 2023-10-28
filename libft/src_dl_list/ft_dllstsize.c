@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dllstsize.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:12:02 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 12:21:30 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:37:32 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dl_list.h"
+#include <dl_list.h>
 
 int	ft_dllstsize(t_dllist *lst)
 {

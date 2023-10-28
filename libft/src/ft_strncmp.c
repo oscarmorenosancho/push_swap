@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:38:23 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 13:12:23 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:34:42 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_mand.h"
+#include <libft_mand.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

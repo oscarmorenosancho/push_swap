@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dllst_reduce.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:17:40 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/01/05 12:45:44 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:37:32 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dl_list.h"
+#include <dl_list.h>
 
 void	ft_dllst_reduce(t_dllist *lst, \
 	void (*f)(unsigned int, t_dllist *, void *), void *arg)

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 12:05:03 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 13:10:06 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:34:42 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_mand.h"
+#include <libft_mand.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

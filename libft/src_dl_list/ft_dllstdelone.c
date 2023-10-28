@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dllstdelone.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:33:59 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 10:37:59 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:37:32 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dl_list.h"
+#include <dl_list.h>
 
 void	ft_dllstdelone(t_dllist *lst, void (*del)(void *))
 {

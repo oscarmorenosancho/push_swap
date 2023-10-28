@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dllst_swap.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 14:52:46 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/30 13:14:55 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:37:32 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dl_list.h"
+#include <dl_list.h>
 
 static void	ft_relink(t_dllist *last,	t_dllist *head,	\
 				t_dllist *scd, t_dllist *thrd)

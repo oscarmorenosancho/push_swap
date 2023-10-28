@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dllst_extract.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 14:52:46 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/19 15:33:23 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:37:32 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dl_list.h"
+#include <dl_list.h>
 
 t_dllist	*ft_dllst_extract(t_dllist **lst)
 {

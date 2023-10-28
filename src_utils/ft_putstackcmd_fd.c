@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstackcmd_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:26:52 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/23 11:17:47 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 16:21:07 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	fn_printstackcmd(unsigned int i, void *content, void *arg)
 
 	(void)i;
 	sc = (t_stack_cmd)content;
-	fd = (int)arg;
+	fd = (int)(long)arg;
 	ft_putstackcmd_fd(sc, fd);
 }
 

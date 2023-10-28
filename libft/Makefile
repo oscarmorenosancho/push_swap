@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
+#    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2023/01/05 10:23:41 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/28 16:12:44 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,96 +101,93 @@ SRCDLL := ft_dllstnew.c\
 	ft_dllstfindfirstnoderev.c\
 	ft_dllst_reduce.c
 
-LIBFT_PATH := libft/
-SRC_PATH := src/
-BONUS_PATH := src_bonus/
-GNL_PATH := get_next_line/
-X_PATH := src_extra/
-DLL_PATH := src_dl_list/
-UTILS_PATH := src_utils/
+LIBFT_PATH		:= libft/
+MAND_PATH		:= src/
+BONUS_PATH		:= src_bonus/
+GNL_PATH		:= get_next_line/
+X_PATH			:= src_extra/
+DLL_PATH		:= src_dl_list/
+UTILS_PATH		:= src_utils/
+BUILD_PATH		:= .build/
 
-SRC_F := $(addprefix $(SRC_PATH), $(SRC))
-SRCB_F := $(addprefix $(BONUS_PATH), $(SRCB))
-SRCGNL_F := $(addprefix $(GNL_PATH), $(SRCGNL))
-SRCX_F := $(addprefix $(X_PATH), $(SRCX))
-SRCDLL_F := $(addprefix $(DLL_PATH), $(SRCDLL))
-SRCU_F := $(addprefix $(UTILS_PATH), $(SRCU))
+SRCM_F			:= $(addprefix $(MAND_PATH), $(SRC))
+SRCB_F			:= $(addprefix $(BONUS_PATH), $(SRCB))
+SRCGNL_F		:= $(addprefix $(GNL_PATH), $(SRCGNL))
+SRCX_F			:= $(addprefix $(X_PATH), $(SRCX))
+SRCDLL_F		:= $(addprefix $(DLL_PATH), $(SRCDLL))
+SRCU_F			:= $(addprefix $(UTILS_PATH), $(SRCU))
 
-SRC_FP := $(addprefix $(LIBFT_PATH), $(SRC_F))
-SRCB_FP := $(addprefix $(LIBFT_PATH), $(SRCB_F))
-SRCGNL_FP := $(addprefix $(LIBFT_PATH), $(SRCGNL_F))
-SRCX_FP := $(addprefix $(LIBFT_PATH), $(SRCX_F))
-SRCDLL_FP := $(addprefix $(LIBFT_PATH), $(SRCDLL_F))
-SRCU_FP := $(addprefix $(LIBFT_PATH), $(SRCU_F))
+SRC_FP			:= $(addprefix $(LIBFT_PATH), $(SRC_F))
+SRCB_FP			:= $(addprefix $(LIBFT_PATH), $(SRCB_F))
+SRCGNL_FP		:= $(addprefix $(LIBFT_PATH), $(SRCGNL_F))
+SRCX_FP			:= $(addprefix $(LIBFT_PATH), $(SRCX_F))
+SRCDLL_FP		:= $(addprefix $(LIBFT_PATH), $(SRCDLL_F))
+SRCU_FP			:= $(addprefix $(LIBFT_PATH), $(SRCU_F))
 
-OBJ := $(SRC_F:.c=.o)
-OBJB := $(SRCB_F:.c=.o)
-OBJGNL := $(SRCGNL_F:.c=.o)
-OBJX := $(SRCX_F:.c=.o)
-OBJDLL := $(SRCDLL_F:.c=.o)
-OBJU := $(SRCU_F:.c=.o)
+OBJM			:= $(addprefix $(BUILD_PATH),$(SRCM_F:.c=.o))
+OBJB			:= $(addprefix $(BUILD_PATH),$(SRCB_F:.c=.o))
+OBJGNL			:= $(addprefix $(BUILD_PATH),$(SRCGNL_F:.c=.o))
+OBJX			:= $(addprefix $(BUILD_PATH),$(SRCX_F:.c=.o))
+OBJDLL			:= $(addprefix $(BUILD_PATH),$(SRCDLL_F:.c=.o))
+OBJU			:= $(addprefix $(BUILD_PATH),$(SRCU_F:.c=.o))
 
-DEPS := $(SRC_F:.c=.d)
-DEPSB := $(SRCB_F:.c=.d)
-DEPSGNL := $(SRCGNL_F:.c=.d)
-DEPSX := $(SRCX_F:.c=.d)
-DEPSDLL := $(SRCDLL_F:.c=.d)
-DEPSU := $(SRCU_F:.c=.d)
+DEPS			:= $(addprefix $(BUILD_PATH),$(SRCM_F:.c=.d))
+DEPSB			:= $(addprefix $(BUILD_PATH),$(SRCB_F:.c=.d))
+DEPSGNL			:= $(addprefix $(BUILD_PATH),$(SRCGNL_F:.c=.d))
+DEPSX			:= $(addprefix $(BUILD_PATH),$(SRCX_F:.c=.d))
+DEPSDLL			:= $(addprefix $(BUILD_PATH),$(SRCDLL_F:.c=.d))
+DEPSU			:= $(addprefix $(BUILD_PATH),$(SRCU_F:.c=.d))
 
-CC	:= 	gcc
-CFLAGS := -Wall -Werror -Wextra -MMD
-RM	:= 	rm -f
-LIBC	:= 	ar -rcs
-HEADER := libft.h 
-MAND_H := $(addprefix $(SRC_PATH), libft_mand.h)
-BONUS_H := $(addprefix $(BONUS_PATH), libft_bonus.h)
-GNL_H := $(addprefix $(GNL_PATH), get_next_line.h)
-X_H := $(addprefix $(X_PATH), libft_extra.h)
-DLL_H := $(addprefix $(DLL_PATH), dl_list.h)
-UTILS_H := $(addprefix $(UTILS_PATH), utils.h)
-MAND_HP := $(addprefix $(LIBFT_PATH), $(MAND_H))
-BONUS_HP := $(addprefix $(LIBFT_PATH), $(BONUS_H))
-GNL_HP := $(addprefix $(LIBFT_PATH), $(GNL_H))
-X_HP := $(addprefix $(LIBFT_PATH), $(X_H))
-DLL_HP := $(addprefix $(LIBFT_PATH), $(DLL_H))
-UTILS_HP := $(addprefix $(LIBFT_PATH), $(UTILS_H))
-HEADER_FP := $(addprefix $(LIBFT_PATH), $(HEADER)) 
+CC				:= 	@gcc
+CFLAGS			:= -Wall -Werror -Wextra -MMD -g
+RM				:= 	@rm -Rf
+LIBC			:= 	@ar -rcs
+HEADER			:= libft.h 
+MAND_H			:= $(addprefix $(MAND_PATH), libft_mand.h)
+BONUS_H			:= $(addprefix $(BONUS_PATH), libft_bonus.h)
+GNL_H			:= $(addprefix $(GNL_PATH), get_next_line.h)
+X_H				:= $(addprefix $(X_PATH), libft_extra.h)
+DLL_H			:= $(addprefix $(DLL_PATH), dl_list.h)
+UTILS_H			:= $(addprefix $(UTILS_PATH), utils.h)
+MAND_HP			:= $(addprefix $(LIBFT_PATH), $(MAND_H))
+BONUS_HP		:= $(addprefix $(LIBFT_PATH), $(BONUS_H))
+GNL_HP			:= $(addprefix $(LIBFT_PATH), $(GNL_H))
+X_HP			:= $(addprefix $(LIBFT_PATH), $(X_H))
+DLL_HP			:= $(addprefix $(LIBFT_PATH), $(DLL_H))
+UTILS_HP		:= $(addprefix $(LIBFT_PATH), $(UTILS_H))
+HEADER_FP		:= $(addprefix $(LIBFT_PATH), $(HEADER))
+ALL_HEADERS		:= ${MAND_H} ${BONUS_H} ${GNL_H} ${X_H} ${DLL_H} ${UTILS_H} $(HEADER)
+ALL_HEADERS_FP	:= $(addprefix $(LIBFT_PATH), $(ALL_HEADERS)) 
 
-%.o : %.c ${HEADER}
-	${CC} ${CFLAGS} -I ${HEADER} -c $< -o $@
+folder_create = $(shell mkdir -p $(1))
+
+.SECONDEXPANSION:
+
+$(BUILD_PATH)%.o: %.c ${HEADER} | $$(call folder_create,$$(dir $$@))
+	@echo "Compiling " $@ " ..."
+	${CC} ${CFLAGS} -I ${LIBFT_PATH} -I ${MAND_PATH} -I ${BONUS_PATH} \
+		-I ${GNL_PATH} -I ${X_PATH} -I ${DLL_PATH} -I ${UTILS_PATH} \
+			-c $< -o $@
 
 all : $(NAME)
 
--include $(DEPS)
-$(NAME) : $(OBJ) $(HEADER) $(MAND_H)
-	$(LIBC) $(NAME) $(OBJ)
-	@echo $(SRC_FP) $(HEADER_FP) $(MAND_HP) > $(NAME:.a=.d)
+$(BUILD_PATH):
+	mkdir -p -m 777 $@
 
--include $(DEPSB)
-bonus: $(OBJ) $(OBJB) $(OBJGNL) $(OBJX) $(OBJDLL) $(OBJU) $(HEADER) $(MAND_H) $(GNL_H) $(X_H) $(BONUS_H) $(DLL_H) $(UTILS_H)
-	$(LIBC) $(NAME) $(OBJ) $(OBJB) $(OBJX) $(OBJGNL) $(OBJDLL) $(OBJU)
+-include $(DEPMS) $(DEPSB) $(DEPSDLL) $(DEPSGNL) $(DEPSDLL) $(DEPSX) $(DEPSU)
+$(NAME) : $(OBJM) $(OBJB) $(OBJGNL) $(OBJX) $(OBJDLL) $(OBJU) ${ALL_HEADERS}
+	@echo "Linking " $@ " ..."
+	$(LIBC) $(NAME) $(OBJM) $(OBJB) $(OBJX) $(OBJGNL) $(OBJDLL) $(OBJU)
 	@echo $(SRC_FP) $(SRCB_FP) $(SRCGNL_FP) $(SRCX_FP) $(SRCDLL_FP) $(SRCU_FP)\
-		$(HEADER_FP) $(MAND_HP) $(BONUS_HP) $(GNL_HP) $(X_HP) $(DLL_HP) > $(NAME:.a=.d)
-	@touch $@
+		${ALL_HEADERS_FP} > $(NAME:.a=.d)
 
 clean :
-	$(RM) $(OBJ)
-	$(RM) $(OBJB)
-	$(RM) $(OBJGNL)
-	$(RM) $(OBJX)
-	$(RM) $(OBJDLL)
-	$(RM) $(OBJU)
-	$(RM) $(DEPS)
-	$(RM) $(DEPSB)
-	$(RM) $(DEPSGNL)
-	$(RM) $(DEPSX)
-	$(RM) $(DEPSDLL)
-	$(RM) $(DEPSU)
+	@echo "Cleaning libft"
+	$(RM) ${BUILD_PATH}
 
 fclean : clean
+	@echo "Full cleaning of libft"
 	$(RM) $(NAME)
-	$(RM) bonus
-	$(RM) *.d
 
 re: fclean all
 

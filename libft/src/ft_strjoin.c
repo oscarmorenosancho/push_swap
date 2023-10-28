@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:51:22 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 13:13:00 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:34:42 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_mand.h"
+#include <libft_mand.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

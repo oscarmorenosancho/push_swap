@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_duplicated.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:26:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/22 13:57:24 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 16:20:18 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	ft_check_duplicated(int *tab, size_t size)
 {
 	size_t	i;
-	int		found_dup;
 
-	found_dup = 0;
 	i = 1;
 	while (i < size)
 	{

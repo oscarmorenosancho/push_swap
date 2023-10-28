@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dllstclear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:38:48 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/21 12:02:35 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:37:32 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dl_list.h"
+#include <dl_list.h>
 
 void	ft_dllstclear(t_dllist **lst, void (*del)(void *))
 {

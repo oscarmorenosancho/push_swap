@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:56:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 13:21:12 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/28 13:36:30 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include <libft_bonus.h>
 
 static t_list	*ft_applyftonode(t_list *curnode, void *(*f)(void *), \
 	void (*del)(void *))
